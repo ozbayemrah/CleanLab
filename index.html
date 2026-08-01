@@ -280,7 +280,103 @@ header{
 .signup-form input:focus{outline:3px solid var(--sky-deep);outline-offset:2px;}
 .form-note{font-family:'Space Mono',monospace;font-size:12px;color:#777;margin-top:14px;}
 
-/* ---------- FOOTER ---------- */
+/* ---------- PRODUCT MODAL ---------- */
+.product-card{cursor:pointer;}
+.product-card:focus-visible{outline:3px solid var(--sky-deep);outline-offset:3px;}
+.modal-overlay{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(26,26,26,0.55);
+  display:flex;align-items:center;justify-content:center;
+  padding:18px;
+  opacity:0;visibility:hidden;
+  transition:opacity .2s ease,visibility .2s ease;
+}
+.modal-overlay.open{opacity:1;visibility:visible;}
+.modal{
+  background:var(--cream);
+  border:3px solid var(--ink);
+  border-radius:22px;
+  width:100%;max-width:800px;max-height:90vh;
+  display:flex;flex-direction:column;overflow:hidden;
+  box-shadow:10px 10px 0 var(--ink);
+  transform:translateY(18px);
+  transition:transform .2s ease;
+}
+.modal-overlay.open .modal{transform:translateY(0);}
+.modal-header{
+  position:relative;
+  display:flex;gap:18px;align-items:center;
+  padding:24px 56px 20px 24px;
+  border-bottom:3px solid var(--ink);
+}
+.modal-swatch{
+  width:88px;height:112px;border-radius:12px;border:3px solid var(--ink);
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+}
+.modal-swatch .bottle{width:40px;height:70px;}
+.modal-title h2{font-size:clamp(24px,4vw,30px);margin-bottom:6px;}
+.modal-title .price{font-size:15px;}
+.modal-close{
+  position:absolute;top:16px;right:16px;
+  width:38px;height:38px;border-radius:50%;
+  border:3px solid var(--ink);background:var(--paper);
+  font-family:'Baloo 2',sans-serif;font-size:18px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+}
+.modal-close:hover{background:var(--lime);}
+.modal-tabs{
+  display:flex;gap:6px;overflow-x:auto;
+  padding:12px 24px 0;
+  border-bottom:3px solid var(--ink);
+  scrollbar-width:thin;
+}
+.modal-tab{
+  font-family:'Space Mono',monospace;font-size:12px;font-weight:700;
+  padding:9px 14px;border-radius:10px 10px 0 0;
+  border:2px solid var(--ink);border-bottom:none;
+  background:var(--paper);color:var(--ink);
+  white-space:nowrap;cursor:pointer;
+}
+.modal-tab.active{background:var(--ink);color:var(--cream);}
+.modal-body{padding:22px 24px 30px;overflow-y:auto;}
+.modal-panel{display:none;}
+.modal-panel.active{display:block;}
+.modal-panel p{color:#3a3a3a;font-size:15px;margin-bottom:12px;}
+.spec-table{width:100%;border-collapse:collapse;}
+.spec-table tr{border-bottom:1px solid #e6ded4;}
+.spec-table td{padding:9px 4px;font-size:14px;}
+.spec-table td:first-child{color:#777;width:44%;}
+.spec-table td:last-child{font-weight:600;}
+.feature-list,.env-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.feature-list li,.env-list li{display:flex;gap:10px;align-items:flex-start;font-size:15px;}
+.feature-list li::before{content:"✦";color:var(--pink);flex-shrink:0;}
+.env-list li::before{content:"🌱";flex-shrink:0;}
+.howto-list{list-style:none;counter-reset:step;display:flex;flex-direction:column;gap:12px;}
+.howto-list li{display:flex;gap:12px;align-items:flex-start;font-size:15px;counter-increment:step;}
+.howto-list li::before{
+  content:counter(step);
+  font-family:'Baloo 2',sans-serif;font-weight:700;
+  background:var(--sky);color:var(--ink);
+  border:2px solid var(--ink);border-radius:50%;
+  width:26px;height:26px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:13px;
+}
+.faq-item{border-bottom:1px solid #e6ded4;padding:12px 0;}
+.faq-item summary{font-weight:600;cursor:pointer;font-size:15px;list-style:none;display:flex;justify-content:space-between;gap:10px;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:"+";font-family:'Baloo 2',sans-serif;font-size:18px;flex-shrink:0;}
+.faq-item[open] summary::after{content:"–";}
+.faq-item p{margin-top:8px;margin-bottom:0;}
+.review-card{border:2px solid var(--ink);border-radius:14px;padding:14px 16px;margin-bottom:12px;}
+.review-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.review-name{font-weight:700;font-size:14px;}
+.review-stars{color:var(--pink);font-size:14px;letter-spacing:1px;}
+.review-card p{margin:0;font-size:14px;}
+@media(max-width:600px){
+  .modal-header{flex-direction:column;align-items:flex-start;}
+  .modal-swatch{width:64px;height:84px;}
+}
+
 footer{
   border-top:3px solid var(--ink);
   padding:44px 24px 30px;
@@ -403,26 +499,26 @@ footer{
       <h2>Three formulas. Zero boring smells.</h2>
     </div>
     <div class="product-grid">
-      <div class="product-card">
+      <div class="product-card" data-product="flower-fart" role="button" tabindex="0" aria-haspopup="dialog">
         <div class="swatch sw-flower"><div class="bottle"></div></div>
         <h3>Flower Fart</h3>
         <div class="tag-row"><span class="tag">Vegan</span><span class="tag">Floral</span></div>
         <p>Smells better than it sounds, promise. A soft floral wash that cuts road grime without touching your finish.</p>
-        <div class="price-row"><span class="price">€14.90</span><a href="#signup" class="btn btn-ghost" style="padding:8px 16px;font-size:14px;">Notify me</a></div>
+        <div class="price-row"><span class="price">€14.90</span><a href="#signup" class="btn btn-ghost" onclick="event.stopPropagation()" style="padding:8px 16px;font-size:14px;">Notify me</a></div>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-product="bubblegum" role="button" tabindex="0" aria-haspopup="dialog">
         <div class="swatch sw-bubble"><div class="bottle"></div></div>
         <h3>BubbleGum</h3>
         <div class="tag-row"><span class="tag">Vegan</span><span class="tag">Sweet</span></div>
         <p>Childhood, but make it horsepower. Big foam, candy sweet, gentle on every finish.</p>
-        <div class="price-row"><span class="price">€14.90</span><a href="#signup" class="btn btn-ghost" style="padding:8px 16px;font-size:14px;">Notify me</a></div>
+        <div class="price-row"><span class="price">€14.90</span><a href="#signup" class="btn btn-ghost" onclick="event.stopPropagation()" style="padding:8px 16px;font-size:14px;">Notify me</a></div>
       </div>
-      <div class="product-card">
+      <div class="product-card" data-product="cleandisco" role="button" tabindex="0" aria-haspopup="dialog">
         <div class="swatch sw-disco"><div class="bottle"></div></div>
         <h3>CleanDisco</h3>
         <div class="tag-row"><span class="tag">Vegan</span><span class="tag">Fresh</span></div>
         <p>Shine like it's Saturday night. A fresh, energetic scent for after dark rides.</p>
-        <div class="price-row"><span class="price">€14.90</span><a href="#signup" class="btn btn-ghost" style="padding:8px 16px;font-size:14px;">Notify me</a></div>
+        <div class="price-row"><span class="price">€14.90</span><a href="#signup" class="btn btn-ghost" onclick="event.stopPropagation()" style="padding:8px 16px;font-size:14px;">Notify me</a></div>
       </div>
     </div>
   </div>
@@ -532,6 +628,270 @@ footer{
   </div>
   <div class="footer-bottom wrap">© 2026 CleanLab. Made in a garage, not a factory.</div>
 </footer>
+
+<div class="modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalProductName" hidden>
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-swatch" id="modalSwatch"><div class="bottle" style="width:40px;height:70px;background:rgba(255,255,255,0.55);border:3px solid var(--ink);border-radius:8px 8px 12px 12px;"></div></div>
+      <div class="modal-title">
+        <h2 id="modalProductName">Product name</h2>
+        <span class="price" id="modalPrice">€0.00</span>
+      </div>
+      <button class="modal-close" id="modalClose" aria-label="Close product details">✕</button>
+    </div>
+    <div class="modal-tabs" id="modalTabs" role="tablist"></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+var PRODUCTS = {
+  "flower-fart": {
+    name: "Flower Fart",
+    price: "€14.90",
+    swatchClass: "sw-flower",
+    description: "Don't let the name scare you off. Flower Fart is a light, floral wash built to lift dirt and road grime without stripping wax or fading paint. It foams up fast, smells like a garden after rain, and rinses off clean without leaving streaks. Made for riders who want a proper clean without a chemical smell taking over the garage.",
+    info: [
+      ["Volume", "500ml"],
+      ["Format", "Spray bottle"],
+      ["pH", "Neutral, around 7"],
+      ["Scent strength", "Medium"],
+      ["Vegan", "Yes"],
+      ["Cruelty free", "Yes"],
+      ["Shelf life", "24 months unopened"]
+    ],
+    features: [
+      "Plant based cleaning agents, no harsh solvents",
+      "Safe on paint, chrome, plastic and rubber",
+      "High foam formula lifts dirt before you even wipe",
+      "Light floral scent that fades, doesn't linger for days",
+      "Breaks down naturally within about 28 days"
+    ],
+    howTo: [
+      "Shake well before use.",
+      "Spray generously over a cool, dry surface, avoid direct sun.",
+      "Let it sit for 30 to 60 seconds.",
+      "Wipe or rinse off with water, no scrubbing needed.",
+      "Dry with a microfiber cloth for a streak free finish."
+    ],
+    environment: [
+      "Formula breaks down naturally, safe for driveways, drains and rivers",
+      "Bottle made from recycled plastic",
+      "Never tested on animals, fully vegan formula start to finish",
+      "Concentrated formula means less plastic shipped per wash"
+    ],
+    faq: [
+      ["Does it really smell like flowers?", "Yes, a soft floral scent, nothing too sweet or heavy."],
+      ["Can I use it on a car too?", "Yes, it works fine on cars, motorbikes and bicycles alike."],
+      ["Is it safe on matte finishes?", "Yes, the pH neutral formula is safe on matte paint and vinyl wraps."],
+      ["How long does one bottle last?", "About 15 to 20 washes on an average size motorbike."]
+    ],
+    reviews: [
+      ["Mira", 5, "Smells way better than the name suggests. My bike has never been this clean."],
+      ["Jonas", 4, "Great foam, cuts through mud fast. Wish the bottle was a bit bigger."],
+      ["Ana", 5, "Finally a cleaner that doesn't smell like a chemical plant."]
+    ]
+  },
+  "bubblegum": {
+    name: "BubbleGum",
+    price: "€14.90",
+    swatchClass: "sw-bubble",
+    description: "Childhood nostalgia in a spray bottle. BubbleGum brings a sweet, high foam wash that cuts through grease and grime while your bike ends up smelling like the best summer of your life. Built for the dirtiest jobs, gentle enough for daily use.",
+    info: [
+      ["Volume", "500ml"],
+      ["Format", "Spray bottle"],
+      ["pH", "Neutral, around 6.8"],
+      ["Scent strength", "Strong"],
+      ["Vegan", "Yes"],
+      ["Cruelty free", "Yes"],
+      ["Shelf life", "24 months unopened"]
+    ],
+    features: [
+      "Extra high foam, great for degreasing chains and wheels",
+      "Sweet, long lasting bubblegum scent",
+      "Safe on all finishes, including matte and satin",
+      "Works in cold water too, no need to heat anything up",
+      "Concentrated, a little goes a long way"
+    ],
+    howTo: [
+      "Shake well before use.",
+      "Spray on the dirtiest parts first, chain, wheels, exhaust.",
+      "Wait 1 to 2 minutes for the foam to break down grease.",
+      "Rinse thoroughly with water.",
+      "Wipe dry to avoid water spots."
+    ],
+    environment: [
+      "Biodegradable surfactants, no phosphates",
+      "Recyclable bottle and cap",
+      "100% vegan, never tested on animals",
+      "Made in small batches to avoid overproduction waste"
+    ],
+    faq: [
+      ["Is the smell too strong?", "It's on the stronger side. If you prefer something lighter, try Flower Fart."],
+      ["Can I use it on my chain?", "Yes, it's safe on chains, just re-lube after cleaning."],
+      ["Does it stain plastic parts?", "No, the formula is dye free and won't stain."]
+    ],
+    reviews: [
+      ["Leo", 5, "My garage smells like a candy store now, in the best way."],
+      ["Sara", 5, "Cuts through mud like nothing else I've tried."],
+      ["Deniz", 4, "Love the smell, foam could last a bit longer in hot weather."]
+    ]
+  },
+  "cleandisco": {
+    name: "CleanDisco",
+    price: "€14.90",
+    swatchClass: "sw-disco",
+    description: "Fresh, energetic and built for after dark rides. CleanDisco is a fast acting wash with a crisp, citrus forward scent that leaves your ride looking, and smelling, ready for the night.",
+    info: [
+      ["Volume", "500ml"],
+      ["Format", "Spray bottle"],
+      ["pH", "Neutral, around 7.2"],
+      ["Scent strength", "Medium"],
+      ["Vegan", "Yes"],
+      ["Cruelty free", "Yes"],
+      ["Shelf life", "24 months unopened"]
+    ],
+    features: [
+      "Fast acting formula, ready to rinse in under a minute",
+      "Crisp citrus scent with a hint of mint",
+      "Streak free finish on glass, mirrors and visors",
+      "Anti static formula, less dust sticks after cleaning",
+      "Easy to see foam coverage, even in low light"
+    ],
+    howTo: [
+      "Shake well before use.",
+      "Spray evenly across the surface.",
+      "Wait about 45 seconds.",
+      "Rinse or wipe with a damp cloth.",
+      "Buff dry for extra shine."
+    ],
+    environment: [
+      "Readily biodegradable formula",
+      "No microplastics, no harsh preservatives",
+      "Vegan and cruelty free from mix to bottle",
+      "Bottle designed for refill, a refill program is in the works"
+    ],
+    faq: [
+      ["Does it work on helmets and visors?", "Yes, it's safe on most visors, always spot test coated lenses first."],
+      ["Is it good for night rides specifically?", "The anti static finish means less dust sticks after dark, that's where the name comes from."],
+      ["Any alcohol in the formula?", "No, it's alcohol free so it won't dry out rubber seals."]
+    ],
+    reviews: [
+      ["Petra", 5, "Visor came out crystal clear, no streaks at all."],
+      ["Tom", 4, "Smells fresh, not overpowering. Works fast."],
+      ["Ivo", 5, "My go to before every night ride now."]
+    ]
+  }
+};
+
+var TABS = ["Description", "Product info", "Features", "How to", "Protect the world", "FAQ", "Reviews"];
+
+function starString(n){
+  var full = "★★★★★".slice(0, n);
+  var empty = "☆☆☆☆☆".slice(0, 5 - n);
+  return full + empty;
+}
+
+function buildPanel(tabIndex, p){
+  if (tabIndex === 0){
+    return "<div class=\"modal-panel" + (tabIndex===0?" active":"") + "\" data-panel=\"0\"><p>" + p.description + "</p></div>";
+  }
+  if (tabIndex === 1){
+    var rows = p.info.map(function(row){
+      return "<tr><td>" + row[0] + "</td><td>" + row[1] + "</td></tr>";
+    }).join("");
+    return "<div class=\"modal-panel\" data-panel=\"1\"><table class=\"spec-table\">" + rows + "</table></div>";
+  }
+  if (tabIndex === 2){
+    var items = p.features.map(function(f){ return "<li>" + f + "</li>"; }).join("");
+    return "<div class=\"modal-panel\" data-panel=\"2\"><ul class=\"feature-list\">" + items + "</ul></div>";
+  }
+  if (tabIndex === 3){
+    var steps = p.howTo.map(function(s){ return "<li>" + s + "</li>"; }).join("");
+    return "<div class=\"modal-panel\" data-panel=\"3\"><ol class=\"howto-list\">" + steps + "</ol></div>";
+  }
+  if (tabIndex === 4){
+    var envItems = p.environment.map(function(e){ return "<li>" + e + "</li>"; }).join("");
+    return "<div class=\"modal-panel\" data-panel=\"4\"><ul class=\"env-list\">" + envItems + "</ul></div>";
+  }
+  if (tabIndex === 5){
+    var faqs = p.faq.map(function(qa){
+      return "<details class=\"faq-item\"><summary>" + qa[0] + "</summary><p>" + qa[1] + "</p></details>";
+    }).join("");
+    return "<div class=\"modal-panel\" data-panel=\"5\">" + faqs + "</div>";
+  }
+  if (tabIndex === 6){
+    var reviews = p.reviews.map(function(r){
+      return "<div class=\"review-card\"><div class=\"review-top\"><span class=\"review-name\">" + r[0] + "</span><span class=\"review-stars\">" + starString(r[1]) + "</span></div><p>" + r[2] + "</p></div>";
+    }).join("");
+    return "<div class=\"modal-panel\" data-panel=\"6\">" + reviews + "</div>";
+  }
+  return "";
+}
+
+var modal = document.getElementById("productModal");
+var modalBody = document.getElementById("modalBody");
+var modalTabs = document.getElementById("modalTabs");
+var lastFocused = null;
+
+function openProduct(key){
+  var p = PRODUCTS[key];
+  if (!p) return;
+  lastFocused = document.activeElement;
+
+  document.getElementById("modalProductName").textContent = p.name;
+  document.getElementById("modalPrice").textContent = p.price;
+  document.getElementById("modalSwatch").className = "modal-swatch swatch " + p.swatchClass;
+
+  modalTabs.innerHTML = TABS.map(function(label, i){
+    return "<button class=\"modal-tab" + (i===0?" active":"") + "\" role=\"tab\" data-tab=\"" + i + "\">" + label + "</button>";
+  }).join("");
+
+  modalBody.innerHTML = TABS.map(function(label, i){ return buildPanel(i, p); }).join("");
+
+  modalTabs.querySelectorAll(".modal-tab").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      modalTabs.querySelectorAll(".modal-tab").forEach(function(t){ t.classList.remove("active"); });
+      modalBody.querySelectorAll(".modal-panel").forEach(function(pnl){ pnl.classList.remove("active"); });
+      btn.classList.add("active");
+      modalBody.querySelector('[data-panel="' + btn.dataset.tab + '"]').classList.add("active");
+      modalBody.scrollTop = 0;
+    });
+  });
+
+  modal.hidden = false;
+  requestAnimationFrame(function(){ modal.classList.add("open"); });
+  document.body.style.overflow = "hidden";
+  document.getElementById("modalClose").focus();
+}
+
+function closeProduct(){
+  modal.classList.remove("open");
+  document.body.style.overflow = "";
+  setTimeout(function(){ modal.hidden = true; }, 200);
+  if (lastFocused) lastFocused.focus();
+}
+
+document.querySelectorAll(".product-card").forEach(function(card){
+  card.addEventListener("click", function(){
+    openProduct(card.dataset.product);
+  });
+  card.addEventListener("keydown", function(e){
+    if (e.key === "Enter" || e.key === " "){
+      e.preventDefault();
+      openProduct(card.dataset.product);
+    }
+  });
+});
+
+document.getElementById("modalClose").addEventListener("click", closeProduct);
+modal.addEventListener("click", function(e){
+  if (e.target === modal) closeProduct();
+});
+document.addEventListener("keydown", function(e){
+  if (e.key === "Escape" && !modal.hidden) closeProduct();
+});
+</script>
 
 </body>
 </html>

@@ -31,7 +31,7 @@ Swap either file for an updated version any time. The filenames are referenced d
 - Sticky nav with the real logo
 - Scrolling ticker strip with brand claims (vegan, garage-made, biker-approved)
 - Hero with the mascot and the "mad science, clean conscience" tagline
-- Three product cards for Flower Fart, BubbleGum, CleanDisco with dummy prices and "notify me" buttons
+- Three product cards for Flower Fart, BubbleGum, CleanDisco with dummy prices and "notify me" buttons. Click (or tab to it and press Enter) any card to open a full product popup with tabs for Description, Product info, Features, How to, Protect the world, FAQ and Reviews. All content in the popup is placeholder text, edit the `PRODUCTS` object near the bottom of `index.html` to change it.
 - "How it's made" story section pairing the mascot with the vegan/eco claims
 - A three-step process strip (mix, bottle, ride)
 - A SoxyBobby socks teaser block
