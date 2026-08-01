@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CleanLab — Mad science. Clean conscience.</title>
+<title>CleanLab | Mad science, clean conscience</title>
 <meta name="description" content="100% vegan bike & moto care, cooked up in a garage lab. No harsh chemicals. No boring smells.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,13 +68,36 @@ header{
   background:var(--cream);
   border-bottom:3px solid var(--ink);
 }
-.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;position:relative;}
 .nav-logo{height:38px;}
 .nav-links{display:none;gap:28px;font-weight:600;font-size:15px;}
 .nav-links a{padding:6px 0;border-bottom:3px solid transparent;}
 .nav-links a:hover{border-color:var(--pink);}
 .nav-cta{display:none;}
-@media(min-width:760px){.nav-links{display:flex;} .nav-cta{display:inline-flex;}}
+.nav-toggle{
+  display:flex;flex-direction:column;justify-content:center;gap:5px;
+  width:40px;height:40px;border:3px solid var(--ink);border-radius:10px;
+  background:var(--cream);cursor:pointer;padding:0;
+}
+.nav-toggle span{display:block;width:18px;height:3px;background:var(--ink);margin:0 auto;transition:transform .2s ease,opacity .2s ease;}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+.nav-mobile-panel{
+  display:flex;flex-direction:column;gap:2px;
+  position:absolute;top:100%;left:0;right:0;
+  background:var(--cream);border-bottom:3px solid var(--ink);
+  padding:10px 24px 18px;
+}
+.nav-mobile-panel[hidden]{display:none;}
+.nav-mobile-panel a{padding:10px 0;font-weight:600;font-size:16px;border-bottom:1px solid #e6ded4;}
+.nav-mobile-panel .btn{margin-top:12px;justify-content:center;}
+@media(min-width:760px){
+  .nav-links{display:flex;}
+  .nav-cta{display:inline-flex;}
+  .nav-toggle{display:none;}
+  .nav-mobile-panel{display:none !important;}
+}
 
 /* ---------- MARQUEE ---------- */
 .marquee{
@@ -294,8 +317,35 @@ footer{
       <a href="#signup">Join us</a>
     </div>
     <a href="#signup" class="btn btn-primary nav-cta">Get early access</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navMobilePanel">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-mobile-panel" id="navMobilePanel" hidden>
+      <a href="#products">Formulas</a>
+      <a href="#lab">The lab</a>
+      <a href="#merch">Merch</a>
+      <a href="#signup">Join us</a>
+      <a href="#signup" class="btn btn-primary">Get early access</a>
+    </div>
   </nav>
 </header>
+<script>
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var panel = document.getElementById('navMobilePanel');
+  toggle.addEventListener('click', function(){
+    var open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    panel.hidden = open;
+  });
+  panel.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      toggle.setAttribute('aria-expanded', 'false');
+      panel.hidden = true;
+    });
+  });
+})();
+</script>
 
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
@@ -332,7 +382,7 @@ footer{
     <div>
       <span class="eyebrow">Batch 001 &nbsp;·&nbsp; garage lab, est. 2026</span>
       <h1>Mad science.<br><em>Clean</em> conscience.</h1>
-      <p>100% vegan bike &amp; moto care, cooked up in a real garage lab. No harsh chemicals, no lectures — just good foam and better smells.</p>
+      <p>100% vegan bike and moto care, cooked up in a real garage lab. No harsh chemicals, no lectures, just good foam and a smell you'll actually like.</p>
       <div class="hero-actions">
         <a href="#products" class="btn btn-primary">Shop the lab ↗</a>
         <a href="#lab" class="btn btn-ghost">Meet the mascot</a>
@@ -340,7 +390,7 @@ footer{
     </div>
     <div class="hero-art">
       <span class="badge-float badge-1">100% VEGAN</span>
-      <img src="assets/CL-mascot.svg" alt="CleanLab mascot — a mad-scientist skull character mixing up formulas">
+      <img src="assets/CL-mascot.svg" alt="CleanLab mascot, a mad scientist skull character mixing up formulas">
       <span class="badge-float badge-2">NO HARSH CHEMICALS</span>
     </div>
   </div>
@@ -357,21 +407,21 @@ footer{
         <div class="swatch sw-flower"><div class="bottle"></div></div>
         <h3>Flower Fart</h3>
         <div class="tag-row"><span class="tag">Vegan</span><span class="tag">Floral</span></div>
-        <p>Smells better than it sounds. A soft floral wash that cuts road grime without stripping your finish.</p>
+        <p>Smells better than it sounds, promise. A soft floral wash that cuts road grime without touching your finish.</p>
         <div class="price-row"><span class="price">€14.90</span><a href="#signup" class="btn btn-ghost" style="padding:8px 16px;font-size:14px;">Notify me</a></div>
       </div>
       <div class="product-card">
         <div class="swatch sw-bubble"><div class="bottle"></div></div>
         <h3>BubbleGum</h3>
         <div class="tag-row"><span class="tag">Vegan</span><span class="tag">Sweet</span></div>
-        <p>Childhood, but make it horsepower. High-foam, candy-sweet, and gentle on every finish.</p>
+        <p>Childhood, but make it horsepower. Big foam, candy sweet, gentle on every finish.</p>
         <div class="price-row"><span class="price">€14.90</span><a href="#signup" class="btn btn-ghost" style="padding:8px 16px;font-size:14px;">Notify me</a></div>
       </div>
       <div class="product-card">
         <div class="swatch sw-disco"><div class="bottle"></div></div>
         <h3>CleanDisco</h3>
         <div class="tag-row"><span class="tag">Vegan</span><span class="tag">Fresh</span></div>
-        <p>Shine like it's Saturday night. Fresh, energetic scent built for after-dark rides.</p>
+        <p>Shine like it's Saturday night. A fresh, energetic scent for after dark rides.</p>
         <div class="price-row"><span class="price">€14.90</span><a href="#signup" class="btn btn-ghost" style="padding:8px 16px;font-size:14px;">Notify me</a></div>
       </div>
     </div>
@@ -385,7 +435,7 @@ footer{
       <div class="lab-copy">
         <span class="eyebrow">How it's made</span>
         <h2>Cooked up in the lab. Approved by the planet.</h2>
-        <p>No factory, no focus groups — just a guy, a garage, and way too many failed batches before we got the scent right. Every formula starts vegan and stays that way.</p>
+        <p>No factory, no focus groups. Just a guy, a garage, and way too many failed batches before we got the scent right. Every formula is vegan from the first try to the last.</p>
         <ul class="check-list">
           <li>100% vegan ingredients, never tested on animals</li>
           <li>No harsh chemicals, phosphates or nasty solvents</li>
@@ -407,17 +457,17 @@ footer{
       <div class="process-step">
         <div class="step-num">01</div>
         <h3>Mix the formula</h3>
-        <p>Plant-based surfactants, no harsh solvents, tested until the smell earns its name.</p>
+        <p>Plant based ingredients, no harsh solvents, tested again and again until the smell earned its name.</p>
       </div>
       <div class="process-step">
         <div class="step-num">02</div>
         <h3>Hand-bottle the batch</h3>
-        <p>Small runs, numbered by hand — batch 001 was 40 bottles on a kitchen table.</p>
+        <p>Small runs, numbered by hand. Batch 001 was 40 bottles on a kitchen table, made after work.</p>
       </div>
       <div class="process-step">
         <div class="step-num">03</div>
         <h3>Ride it dirty again</h3>
-        <p>Straight to local riders for the real test: a muddy ride and an honest review.</p>
+        <p>Straight to local riders for the real test. A muddy ride and an honest review.</p>
       </div>
     </div>
   </div>
@@ -429,7 +479,7 @@ footer{
       <div>
         <span class="eyebrow" style="color:var(--sky);">Coming soon</span>
         <h2>SoxyBobby socks are joining the lab.</h2>
-        <p>Our first merch drop — loud, comfortable, and made for riders who want to represent off the bike too.</p>
+        <p>Our first merch drop. Loud, comfy, and made for riders who want to rep the lab off the bike too.</p>
         <a href="#signup" class="btn btn-primary">Get notified</a>
       </div>
       <div class="sock-row" aria-hidden="true">
@@ -445,12 +495,12 @@ footer{
   <div class="wrap signup">
     <span class="eyebrow">Join the lab</span>
     <h2>Be first when batch 002 drops.</h2>
-    <p>No spam, just the occasional weird update from the garage. Unsubscribe whenever.</p>
+    <p>No spam, just the occasional weird update from the garage. Unsubscribe whenever you want.</p>
     <form class="signup-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='You\'re on the list ✓';">
       <input type="email" required placeholder="you@email.com" aria-label="Email address">
       <button type="submit" class="btn btn-primary">Join the lab</button>
     </form>
-    <p class="form-note">Demo page — this form isn't connected to anything yet.</p>
+    <p class="form-note">Demo page, this form isn't connected to anything yet.</p>
   </div>
 </section>
 
@@ -458,7 +508,7 @@ footer{
   <div class="footer-inner">
     <div class="footer-brand">
       <img src="assets/CleanLab.svg" alt="CleanLab">
-      <p>Vegan bike &amp; moto care, made in a garage lab. 100% vegan, 0% boring.</p>
+      <p>Vegan bike and moto care, made in a garage lab. 100% vegan, 0% boring.</p>
     </div>
     <div class="footer-links">
       <div class="footer-col">

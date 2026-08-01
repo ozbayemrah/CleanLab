@@ -1,6 +1,6 @@
-# CleanLab — demo site
+# CleanLab, demo site
 
-A single-page demo built for GitHub Pages. No build step, no dependencies — just `index.html` plus the `assets/` folder.
+A single-page demo built for GitHub Pages. No build step, no dependencies, just `index.html` plus the `assets/` folder.
 
 ## Run it locally
 
@@ -21,10 +21,10 @@ then visit `http://localhost:8000`.
 
 ## What's in `assets/`
 
-- `CleanLab.svg` — your real logo, used in the nav and footer.
-- `CL-mascot.svg` — your real mascot illustration, used in the hero and "how it's made" section.
+- `CleanLab.svg`, your real logo, used in the nav and footer.
+- `CL-mascot.svg`, your real mascot illustration, used in the hero and "how it's made" section.
 
-Swap either file for an updated version any time — the filenames are referenced directly in `index.html`, so a same-name replacement needs no code changes.
+Swap either file for an updated version any time. The filenames are referenced directly in `index.html`, so a same-name replacement needs no code changes.
 
 ## What's on the page
 
@@ -35,10 +35,10 @@ Swap either file for an updated version any time — the filenames are reference
 - "How it's made" story section pairing the mascot with the vegan/eco claims
 - A three-step process strip (mix, bottle, ride)
 - A SoxyBobby socks teaser block
-- An email signup section — currently just swaps the button text to a confirmation message; wire the form up to Mailchimp, Buttondown, a Google Form, or similar before a real launch
+- An email signup section, currently just swaps the button text to a confirmation message. Wire the form up to Mailchimp, Buttondown, a Google Form, or similar before a real launch
 - Footer with logo, nav links, and placeholder social links
 
-Everything is one HTML file with inline CSS/JS, so it's easy to hand-edit directly — no build tools needed, matching the zero-cost setup.
+Everything is one HTML file with inline CSS/JS, so it's easy to hand-edit directly. No build tools needed, matching the zero-cost setup.
 
 ## Easy next tweaks
 
