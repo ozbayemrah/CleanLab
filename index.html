@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CleanLab | Mad science, clean conscience</title>
-<meta name="description" content="100% vegan bike & moto care, cooked up in a garage lab. No harsh chemicals. No boring smells.">
+<title>CleanLab | The Lab Shop</title>
+<meta name="description" content="90% water, 10% biodegradable cleaning power. Vegan bike and moto care, made by hand. No harsh chemicals, no boring smells.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -32,6 +32,7 @@ body{
 }
 img{max-width:100%;display:block;}
 a{color:inherit;text-decoration:none;}
+button{font-family:inherit;}
 .wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
 h1,h2,h3,.display{font-family:'Baloo 2',sans-serif;font-weight:700;line-height:1.05;}
 .eyebrow{
@@ -68,9 +69,9 @@ header{
   background:var(--cream);
   border-bottom:3px solid var(--ink);
 }
-.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;position:relative;}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;position:relative;gap:12px;}
 .nav-logo{height:38px;}
-.nav-links{display:none;gap:28px;font-weight:600;font-size:15px;}
+.nav-links{display:none;gap:24px;font-weight:600;font-size:15px;}
 .nav-links a{padding:6px 0;border-bottom:3px solid transparent;}
 .nav-links a:hover{border-color:var(--pink);}
 .nav-cta{display:none;}
@@ -88,11 +89,12 @@ header{
   position:absolute;top:100%;left:0;right:0;
   background:var(--cream);border-bottom:3px solid var(--ink);
   padding:10px 24px 18px;
+  max-height:80vh;overflow-y:auto;
 }
 .nav-mobile-panel[hidden]{display:none;}
 .nav-mobile-panel a{padding:10px 0;font-weight:600;font-size:16px;border-bottom:1px solid #e6ded4;}
 .nav-mobile-panel .btn{margin-top:12px;justify-content:center;}
-@media(min-width:760px){
+@media(min-width:900px){
   .nav-links{display:flex;}
   .nav-cta{display:inline-flex;}
   .nav-toggle{display:none;}
@@ -167,43 +169,26 @@ header{
 .section-head h2{font-size:clamp(28px,4vw,42px);margin-top:10px;}
 .section-alt{background:var(--paper);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);}
 
-/* ---------- PRODUCTS ---------- */
-.product-grid{display:grid;grid-template-columns:1fr;gap:26px;}
-@media(min-width:700px){.product-grid{grid-template-columns:repeat(3,1fr);}}
-.product-card{
-  border:3px solid var(--ink);
-  border-radius:var(--radius);
-  padding:26px;
-  background:var(--cream);
-  display:flex;flex-direction:column;gap:14px;
-  box-shadow:6px 6px 0 var(--ink);
-  transition:transform .18s ease;
-}
-.product-card:hover{transform:translateY(-6px);}
+/* ---------- SWATCH / ICONS ---------- */
 .swatch{
   width:100%;height:150px;border-radius:12px;
   display:flex;align-items:center;justify-content:center;
   border:3px solid var(--ink);
-  position:relative;
-  overflow:hidden;
+  position:relative;overflow:hidden;
 }
-.swatch .bottle{
-  width:56px;height:98px;
-  background:rgba(255,255,255,0.55);
-  border:3px solid var(--ink);
-  border-radius:10px 10px 16px 16px;
-}
-.swatch .bottle::before{
-  content:"";display:block;width:22px;height:16px;
-  background:rgba(255,255,255,0.55);
-  border:3px solid var(--ink);
-  border-radius:4px 4px 0 0;
-  margin:-19px auto 0;
-}
+.icon-bottle{width:56px;height:98px;background:rgba(255,255,255,0.55);border:3px solid var(--ink);border-radius:10px 10px 16px 16px;}
+.icon-bottle::before{content:"";display:block;width:22px;height:16px;background:rgba(255,255,255,0.55);border:3px solid var(--ink);border-radius:4px 4px 0 0;margin:-19px auto 0;}
+.icon-sock{width:44px;height:96px;background:rgba(255,255,255,0.6);border:3px solid var(--ink);border-radius:40% 40% 14px 60% / 20% 20% 55% 55%;}
+.icon-cap{width:60px;height:36px;background:rgba(255,255,255,0.6);border:3px solid var(--ink);border-radius:50% 50% 4px 4px;position:relative;}
+.icon-cap::after{content:"";position:absolute;left:50%;bottom:-11px;transform:translateX(-50%);width:70px;height:14px;background:rgba(255,255,255,0.6);border:3px solid var(--ink);border-radius:0 0 36px 36px;border-top:none;}
+.icon-kit{width:72px;height:58px;background:rgba(255,255,255,0.6);border:3px solid var(--ink);border-radius:8px;position:relative;overflow:hidden;}
+.icon-kit::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:14px;height:100%;background:var(--ink);opacity:.18;}
 .sw-flower{background:var(--lime);}
 .sw-bubble{background:var(--pink);}
 .sw-disco{background:var(--sky);}
-.product-card h3{font-size:24px;}
+.sw-black{background:var(--ink);}
+.sw-black .icon-cap,.sw-black .icon-cap::after{background:rgba(255,255,255,0.15);}
+.sw-deepsky{background:var(--sky-deep);}
 .tag-row{display:flex;gap:8px;flex-wrap:wrap;}
 .tag{
   font-family:'Space Mono',monospace;
@@ -211,8 +196,6 @@ header{
   padding:4px 10px;border-radius:999px;
   border:2px solid var(--ink);
 }
-.product-card p{color:#444;font-size:15px;}
-.price-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:6px;}
 .price{font-family:'Space Mono',monospace;font-weight:700;font-size:16px;}
 
 /* ---------- PROCESS ---------- */
@@ -238,34 +221,8 @@ header{
 .check-list li{display:flex;gap:10px;align-items:flex-start;font-weight:600;font-size:15px;}
 .check-list li::before{content:"✓";color:var(--lime-ink);background:var(--lime);border-radius:50%;width:22px;height:22px;min-width:22px;display:flex;align-items:center;justify-content:center;font-size:13px;border:2px solid var(--ink);}
 
-/* ---------- MERCH ---------- */
-.merch{
-  border:3px solid var(--ink);
-  border-radius:24px;
-  background:var(--plum);
-  color:#fff;
-  padding:44px 32px;
-  display:grid;grid-template-columns:1fr;gap:24px;align-items:center;
-  box-shadow:8px 8px 0 var(--ink);
-}
-@media(min-width:760px){.merch{grid-template-columns:1.2fr 1fr;padding:52px;}}
-.merch h2{font-size:clamp(26px,4vw,36px);color:#fff;}
-.merch p{color:#f6cfe1;margin:12px 0 20px;max-width:420px;}
-.sock-row{display:flex;gap:14px;}
-.sock{
-  flex:1;height:130px;border-radius:14px;border:3px solid var(--ink);
-  display:flex;align-items:flex-end;justify-content:center;padding-bottom:10px;
-  font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--ink);
-}
-.sock-a{background:var(--lime);}
-.sock-b{background:var(--sky);}
-.sock-c{background:#fff;}
-
 /* ---------- SIGNUP ---------- */
-.signup{
-  text-align:center;
-  max-width:620px;margin:0 auto;
-}
+.signup{text-align:center;max-width:620px;margin:0 auto;}
 .signup h2{font-size:clamp(28px,4vw,40px);margin-bottom:12px;}
 .signup p{color:#444;margin-bottom:26px;}
 .signup-form{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
@@ -280,9 +237,130 @@ header{
 .signup-form input:focus{outline:3px solid var(--sky-deep);outline-offset:2px;}
 .form-note{font-family:'Space Mono',monospace;font-size:12px;color:#777;margin-top:14px;}
 
+/* ---------- SHOP ---------- */
+.shop-header{max-width:640px;}
+.shop-header p{color:#444;font-size:16px;margin-top:10px;max-width:560px;}
+.whats-new{margin-top:40px;}
+.whats-new-track{display:flex;gap:16px;overflow-x:auto;padding:16px 4px 10px;scroll-snap-type:x proximity;}
+.whats-new-card{
+  flex:0 0 180px;scroll-snap-align:start;cursor:pointer;
+  border:3px solid var(--ink);border-radius:14px;padding:14px;
+  background:var(--paper);box-shadow:4px 4px 0 var(--ink);
+  display:flex;flex-direction:column;gap:8px;transition:transform .15s ease;
+}
+.whats-new-card:hover{transform:translateY(-4px);}
+.whats-new-card .swatch{height:90px;}
+.whats-new-card h4{font-size:14px;}
+.whats-new-card .price{font-size:13px;}
+
+.shop-toolbar{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  margin-top:36px;padding-top:24px;border-top:3px solid var(--ink);
+}
+.result-count{font-family:'Space Mono',monospace;font-size:12px;color:#777;}
+.sort-select{
+  font-family:'Space Mono',monospace;font-size:13px;font-weight:700;
+  padding:10px 14px;border:3px solid var(--ink);border-radius:10px;
+  background:var(--paper);cursor:pointer;
+}
+
+.shop-layout{display:grid;grid-template-columns:1fr;gap:28px;margin-top:22px;}
+@media(min-width:900px){.shop-layout{grid-template-columns:230px 1fr;align-items:start;}}
+
+.filters-sidebar{
+  display:none;border:3px solid var(--ink);border-radius:16px;padding:20px;
+  background:var(--paper);
+}
+.filters-sidebar.open{display:block;}
+@media(min-width:900px){.filters-sidebar{display:block;position:sticky;top:90px;}}
+.filter-group{border-bottom:1px solid #e6ded4;padding-bottom:16px;margin-bottom:16px;}
+.filter-group:last-of-type{border-bottom:none;margin-bottom:0;}
+.filter-group h4{font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;}
+.filter-option{display:flex;align-items:center;gap:8px;font-size:14px;margin-bottom:9px;cursor:pointer;}
+.filter-option input{width:16px;height:16px;accent-color:var(--pink);cursor:pointer;flex-shrink:0;}
+.colour-swatch{width:14px;height:14px;border-radius:50%;border:2px solid var(--ink);display:inline-block;flex-shrink:0;}
+.clear-filters{
+  font-family:'Space Mono',monospace;font-size:12px;text-decoration:underline;
+  cursor:pointer;background:none;border:none;color:var(--plum);padding:0;margin-top:4px;
+}
+
+.tile-grid{display:grid;grid-template-columns:1fr;gap:22px;}
+@media(min-width:560px){.tile-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:1180px){.tile-grid{grid-template-columns:repeat(3,1fr);}}
+
+.product-tile{
+  border:3px solid var(--ink);border-radius:var(--radius);padding:20px;
+  background:var(--cream);display:flex;flex-direction:column;gap:10px;
+  box-shadow:6px 6px 0 var(--ink);transition:transform .18s ease;
+  cursor:pointer;position:relative;
+}
+.product-tile:hover{transform:translateY(-6px);}
+.product-tile:focus-visible{outline:3px solid var(--sky-deep);outline-offset:3px;}
+.tile-badge{
+  position:absolute;top:-10px;left:14px;z-index:2;
+  font-family:'Space Mono',monospace;font-size:10px;font-weight:700;
+  padding:4px 10px;border-radius:999px;border:2px solid var(--ink);
+  background:var(--lime);color:var(--lime-ink);
+}
+.tile-badge.badge-coming{background:var(--sky);color:var(--ink);}
+.tile-badge.badge-best{background:var(--pink);color:#fff;}
+.tile-type{font-family:'Space Mono',monospace;font-size:11px;color:#777;}
+.product-tile h3{font-size:19px;}
+.product-tile .price-row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;}
+.empty-state{grid-column:1/-1;text-align:center;padding:50px 20px;color:#777;font-family:'Space Mono',monospace;font-size:14px;}
+
+/* ---------- TREND TOPICS ---------- */
+.trend-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+@media(min-width:760px){.trend-grid{grid-template-columns:repeat(4,1fr);}}
+.trend-tile{
+  border:3px solid var(--ink);border-radius:16px;padding:26px 16px;text-align:center;
+  background:var(--paper);box-shadow:5px 5px 0 var(--ink);transition:transform .15s ease;
+}
+.trend-tile:hover{transform:translateY(-4px);}
+.trend-icon{font-size:30px;margin-bottom:10px;}
+.trend-tile h3{font-size:16px;margin-bottom:4px;}
+.trend-tile p{font-size:12px;color:#777;font-family:'Space Mono',monospace;}
+
+/* ---------- AI WIDGET ---------- */
+.ai-fab{
+  position:fixed;bottom:22px;right:22px;z-index:150;
+  width:60px;height:60px;border-radius:50%;background:var(--pink);
+  border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  font-size:26px;transition:transform .15s ease;
+}
+.ai-fab:hover{transform:translateY(-3px);}
+.ai-panel{
+  position:fixed;bottom:94px;right:22px;z-index:150;
+  width:min(360px,calc(100vw - 32px));max-height:min(520px,calc(100vh - 140px));
+  background:var(--cream);border:3px solid var(--ink);border-radius:20px;
+  box-shadow:8px 8px 0 var(--ink);display:flex;flex-direction:column;overflow:hidden;
+  opacity:0;visibility:hidden;transform:translateY(12px);
+  transition:opacity .2s ease,transform .2s ease,visibility .2s ease;
+}
+.ai-panel.open{opacity:1;visibility:visible;transform:translateY(0);}
+.ai-panel-header{
+  padding:14px 16px;border-bottom:3px solid var(--ink);
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--ink);color:var(--cream);
+}
+.ai-panel-header h4{font-family:'Baloo 2',sans-serif;font-size:16px;}
+.ai-panel-header span{font-family:'Space Mono',monospace;font-size:10px;color:var(--sky);display:block;margin-top:2px;}
+.ai-close{background:none;border:none;color:var(--cream);font-size:18px;cursor:pointer;}
+.ai-messages{flex:1;overflow-y:auto;padding:14px 16px;display:flex;flex-direction:column;gap:10px;}
+.ai-msg{max-width:85%;padding:9px 13px;border-radius:14px;font-size:14px;border:2px solid var(--ink);}
+.ai-msg.bot{background:var(--paper);align-self:flex-start;border-bottom-left-radius:2px;}
+.ai-msg.user{background:var(--lime);align-self:flex-end;border-bottom-right-radius:2px;}
+.ai-suggestions{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 12px;}
+.ai-suggestion{
+  font-family:'Space Mono',monospace;font-size:11px;padding:6px 10px;
+  border:2px solid var(--ink);border-radius:999px;background:var(--paper);cursor:pointer;
+}
+.ai-input-row{display:flex;gap:8px;padding:12px;border-top:3px solid var(--ink);}
+.ai-input-row input{flex:1;padding:10px 12px;border:2px solid var(--ink);border-radius:10px;font-family:'Inter',sans-serif;font-size:13px;min-width:0;}
+.ai-input-row button{border:2px solid var(--ink);background:var(--lime);border-radius:10px;padding:0 14px;font-family:'Baloo 2',sans-serif;font-weight:700;cursor:pointer;}
+
 /* ---------- PRODUCT MODAL ---------- */
-.product-card{cursor:pointer;}
-.product-card:focus-visible{outline:3px solid var(--sky-deep);outline-offset:3px;}
 .modal-overlay{
   position:fixed;inset:0;z-index:200;
   background:rgba(26,26,26,0.55);
@@ -313,8 +391,11 @@ header{
   width:88px;height:112px;border-radius:12px;border:3px solid var(--ink);
   flex-shrink:0;display:flex;align-items:center;justify-content:center;
 }
-.modal-swatch .bottle{width:40px;height:70px;}
-.modal-title h2{font-size:clamp(24px,4vw,30px);margin-bottom:6px;}
+.modal-swatch .icon-bottle{width:40px;height:70px;}
+.modal-swatch .icon-sock{width:32px;height:70px;}
+.modal-swatch .icon-cap{width:44px;height:26px;}
+.modal-swatch .icon-kit{width:52px;height:42px;}
+.modal-title h2{font-size:clamp(22px,4vw,28px);margin-bottom:6px;}
 .modal-title .price{font-size:15px;}
 .modal-close{
   position:absolute;top:16px;right:16px;
@@ -377,6 +458,7 @@ header{
   .modal-swatch{width:64px;height:84px;}
 }
 
+/* ---------- FOOTER ---------- */
 footer{
   border-top:3px solid var(--ink);
   padding:44px 24px 30px;
@@ -385,15 +467,29 @@ footer{
 }
 .footer-inner{
   max-width:1160px;margin:0 auto;
-  display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-start;
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px;align-items:flex-start;
 }
-.footer-brand img{height:34px;filter:brightness(0) invert(1);}
-.footer-brand p{font-family:'Space Mono',monospace;font-size:12px;color:#a8a8a8;margin-top:10px;max-width:220px;}
-.footer-links{display:flex;gap:48px;flex-wrap:wrap;}
+.footer-brand{max-width:240px;}
+.footer-brand img{height:56px;}
+.footer-brand p{font-family:'Space Mono',monospace;font-size:12px;color:#a8a8a8;margin-top:10px;}
+.footer-social{display:flex;gap:10px;margin-top:16px;}
+.footer-social a{
+  width:32px;height:32px;border-radius:50%;border:2px solid #444;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:#ddd;
+}
+.footer-social a:hover{border-color:var(--pink);color:var(--pink);}
+.footer-links{display:flex;gap:40px;flex-wrap:wrap;}
 .footer-col h4{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--sky);margin-bottom:10px;}
 .footer-col a{display:block;font-size:14px;color:#ddd;margin-bottom:8px;}
 .footer-col a:hover{color:var(--pink);}
-.footer-bottom{max-width:1160px;margin:34px auto 0;padding-top:18px;border-top:1px solid #3a3a3a;font-size:12px;color:#888;font-family:'Space Mono',monospace;}
+.footer-bottom{
+  max-width:1160px;margin:34px auto 0;padding-top:18px;border-top:1px solid #3a3a3a;
+  font-size:12px;color:#888;font-family:'Space Mono',monospace;
+  display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-between;
+}
+.footer-bottom a{color:#888;}
+.footer-bottom a:hover{color:var(--pink);}
 
 @media (prefers-reduced-motion: reduce){
   .marquee-track{animation:none;}
@@ -407,9 +503,10 @@ footer{
   <nav class="nav wrap">
     <img class="nav-logo" src="assets/CleanLab.svg" alt="CleanLab">
     <div class="nav-links">
-      <a href="#products">Formulas</a>
+      <a href="#shop">Shop</a>
+      <a href="#whats-new">What's new</a>
       <a href="#lab">The lab</a>
-      <a href="#merch">Merch</a>
+      <a href="#trending">Community</a>
       <a href="#signup">Join us</a>
     </div>
     <a href="#signup" class="btn btn-primary nav-cta">Get early access</a>
@@ -417,9 +514,10 @@ footer{
       <span></span><span></span><span></span>
     </button>
     <div class="nav-mobile-panel" id="navMobilePanel" hidden>
-      <a href="#products">Formulas</a>
+      <a href="#shop">Shop</a>
+      <a href="#whats-new">What's new</a>
       <a href="#lab">The lab</a>
-      <a href="#merch">Merch</a>
+      <a href="#trending">Community</a>
       <a href="#signup">Join us</a>
       <a href="#signup" class="btn btn-primary">Get early access</a>
     </div>
@@ -447,25 +545,25 @@ footer{
   <div class="marquee-track">
     <span class="pink">100% VEGAN</span>
     <span>·</span>
-    <span class="lime">ZERO HARSH CHEMICALS</span>
+    <span class="lime">90% WATER, 10% LAB MAGIC</span>
     <span>·</span>
-    <span>MADE IN A GARAGE</span>
+    <span>MADE BY HAND, DAILY</span>
     <span>·</span>
-    <span class="pink">SMELLS LIKE TROUBLE</span>
+    <span class="pink">WON'T SCRATCH YOUR PAINT</span>
     <span>·</span>
-    <span class="lime">BIKER APPROVED</span>
+    <span class="lime">NO LIMESCALE, EVEN IN EU HARD WATER</span>
     <span>·</span>
     <span>0% BORING</span>
     <span>·</span>
     <span class="pink">100% VEGAN</span>
     <span>·</span>
-    <span class="lime">ZERO HARSH CHEMICALS</span>
+    <span class="lime">90% WATER, 10% LAB MAGIC</span>
     <span>·</span>
-    <span>MADE IN A GARAGE</span>
+    <span>MADE BY HAND, DAILY</span>
     <span>·</span>
-    <span class="pink">SMELLS LIKE TROUBLE</span>
+    <span class="pink">WON'T SCRATCH YOUR PAINT</span>
     <span>·</span>
-    <span class="lime">BIKER APPROVED</span>
+    <span class="lime">NO LIMESCALE, EVEN IN EU HARD WATER</span>
     <span>·</span>
     <span>0% BORING</span>
     <span>·</span>
@@ -476,11 +574,11 @@ footer{
   <div class="hero-blob" aria-hidden="true"></div>
   <div class="hero-inner">
     <div>
-      <span class="eyebrow">Batch 001 &nbsp;·&nbsp; garage lab, est. 2026</span>
+      <span class="eyebrow">Batch 001 &nbsp;·&nbsp; home lab, Austria</span>
       <h1>Mad science.<br><em>Clean</em> conscience.</h1>
-      <p>100% vegan bike and moto care, cooked up in a real garage lab. No harsh chemicals, no lectures, just good foam and a smell you'll actually like.</p>
+      <p>100% vegan bike and moto care, mixed and bottled by hand. No harsh chemicals, no lectures, just good foam and a smell you'll actually like.</p>
       <div class="hero-actions">
-        <a href="#products" class="btn btn-primary">Shop the lab ↗</a>
+        <a href="#shop" class="btn btn-primary">Shop the lab ↗</a>
         <a href="#lab" class="btn btn-ghost">Meet the mascot</a>
       </div>
     </div>
@@ -492,33 +590,69 @@ footer{
   </div>
 </section>
 
-<section class="section" id="products">
+<section class="section" id="shop">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">The first batch</span>
-      <h2>Three formulas. Zero boring smells.</h2>
+    <div class="shop-header">
+      <span class="eyebrow">The lab shop</span>
+      <h2>Eight products. Zero shortcuts.</h2>
+      <p>Every formula is 90% water and 10% biodegradable cleaning power, mixed and bottled by hand. No scratching, no limescale marks, even with EU tap water. Filter by scent, type or price to find your combo.</p>
     </div>
-    <div class="product-grid">
-      <div class="product-card" data-product="flower-fart" role="button" tabindex="0" aria-haspopup="dialog">
-        <div class="swatch sw-flower"><div class="bottle"></div></div>
-        <h3>Flower Fart</h3>
-        <div class="tag-row"><span class="tag">Vegan</span><span class="tag">Floral</span></div>
-        <p>Smells better than it sounds, promise. A soft floral wash that cuts road grime without touching your finish.</p>
-        <div class="price-row"><span class="price">€14.90</span><a href="#signup" class="btn btn-ghost" onclick="event.stopPropagation()" style="padding:8px 16px;font-size:14px;">Notify me</a></div>
+
+    <div class="whats-new" id="whats-new">
+      <span class="eyebrow">What's new</span>
+      <div class="whats-new-track" id="whatsNewTrack"></div>
+    </div>
+
+    <div class="shop-toolbar">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+        <button class="btn btn-ghost" id="filterToggle" style="padding:10px 18px;font-size:14px;" aria-expanded="false" aria-controls="filtersSidebar">Filters</button>
+        <span class="result-count" id="resultCount"></span>
       </div>
-      <div class="product-card" data-product="bubblegum" role="button" tabindex="0" aria-haspopup="dialog">
-        <div class="swatch sw-bubble"><div class="bottle"></div></div>
-        <h3>BubbleGum</h3>
-        <div class="tag-row"><span class="tag">Vegan</span><span class="tag">Sweet</span></div>
-        <p>Childhood, but make it horsepower. Big foam, candy sweet, gentle on every finish.</p>
-        <div class="price-row"><span class="price">€14.90</span><a href="#signup" class="btn btn-ghost" onclick="event.stopPropagation()" style="padding:8px 16px;font-size:14px;">Notify me</a></div>
-      </div>
-      <div class="product-card" data-product="cleandisco" role="button" tabindex="0" aria-haspopup="dialog">
-        <div class="swatch sw-disco"><div class="bottle"></div></div>
-        <h3>CleanDisco</h3>
-        <div class="tag-row"><span class="tag">Vegan</span><span class="tag">Fresh</span></div>
-        <p>Shine like it's Saturday night. A fresh, energetic scent for after dark rides.</p>
-        <div class="price-row"><span class="price">€14.90</span><a href="#signup" class="btn btn-ghost" onclick="event.stopPropagation()" style="padding:8px 16px;font-size:14px;">Notify me</a></div>
+      <select class="sort-select" id="sortSelect" aria-label="Sort products">
+        <option value="featured">Sort: Featured</option>
+        <option value="price-asc">Price: Low to high</option>
+        <option value="price-desc">Price: High to low</option>
+        <option value="az">Name: A to Z</option>
+        <option value="za">Name: Z to A</option>
+        <option value="newest">Newest first</option>
+      </select>
+    </div>
+
+    <div class="shop-layout">
+      <aside class="filters-sidebar" id="filtersSidebar">
+        <div class="filter-group">
+          <h4>Availability</h4>
+          <label class="filter-option"><input type="checkbox" value="in-stock" data-facet="availability"> In stock</label>
+          <label class="filter-option"><input type="checkbox" value="coming-soon" data-facet="availability"> Coming soon</label>
+        </div>
+        <div class="filter-group">
+          <h4>Product type</h4>
+          <label class="filter-option"><input type="checkbox" value="Cleaner" data-facet="type"> Cleaner</label>
+          <label class="filter-option"><input type="checkbox" value="Refill" data-facet="type"> Refill</label>
+          <label class="filter-option"><input type="checkbox" value="Lube" data-facet="type"> Lube</label>
+          <label class="filter-option"><input type="checkbox" value="Protection" data-facet="type"> Protection</label>
+          <label class="filter-option"><input type="checkbox" value="Apparel" data-facet="type"> Apparel</label>
+          <label class="filter-option"><input type="checkbox" value="Kit" data-facet="type"> Kit</label>
+        </div>
+        <div class="filter-group">
+          <h4>Price</h4>
+          <label class="filter-option"><input type="checkbox" value="under15" data-facet="price"> Under &euro;15</label>
+          <label class="filter-option"><input type="checkbox" value="15to25" data-facet="price"> &euro;15 to &euro;25</label>
+          <label class="filter-option"><input type="checkbox" value="over25" data-facet="price"> Over &euro;25</label>
+        </div>
+        <div class="filter-group">
+          <h4>Colour</h4>
+          <label class="filter-option"><input type="checkbox" value="Flower Fart" data-facet="colour"><span class="colour-swatch" style="background:var(--lime);"></span> Flower Fart</label>
+          <label class="filter-option"><input type="checkbox" value="BubbleGum" data-facet="colour"><span class="colour-swatch" style="background:var(--pink);"></span> BubbleGum</label>
+          <label class="filter-option"><input type="checkbox" value="CleanDisco" data-facet="colour"><span class="colour-swatch" style="background:var(--sky);"></span> CleanDisco</label>
+          <label class="filter-option"><input type="checkbox" value="Lab Black" data-facet="colour"><span class="colour-swatch" style="background:var(--ink);"></span> Lab Black</label>
+          <label class="filter-option"><input type="checkbox" value="Lab Sky" data-facet="colour"><span class="colour-swatch" style="background:var(--sky-deep);"></span> Lab Sky</label>
+        </div>
+        <button class="clear-filters" id="clearFilters">Clear all filters</button>
+      </aside>
+
+      <div>
+        <div class="tile-grid" id="productGrid"></div>
       </div>
     </div>
   </div>
@@ -527,16 +661,17 @@ footer{
 <section class="section section-alt" id="lab">
   <div class="wrap">
     <div class="lab-split">
-      <img src="assets/CL-mascot.svg" alt="CleanLab mascot working in the garage lab">
+      <img src="assets/CL-mascot.svg" alt="CleanLab mascot working in the home lab">
       <div class="lab-copy">
         <span class="eyebrow">How it's made</span>
         <h2>Cooked up in the lab. Approved by the planet.</h2>
-        <p>No factory, no focus groups. Just a guy, a garage, and way too many failed batches before we got the scent right. Every formula is vegan from the first try to the last.</p>
+        <p>No factory, no focus groups. Just a home lab, way too many failed batches, and a formula that finally does what it should: clean well, smell good, and leave your paint alone.</p>
         <ul class="check-list">
+          <li>90% water, 10% biodegradable cleaning agents</li>
+          <li>No abrasives, won't scratch paint, chrome or plastic</li>
+          <li>Built for EU tap water, no limescale residue after rinsing</li>
           <li>100% vegan ingredients, never tested on animals</li>
-          <li>No harsh chemicals, phosphates or nasty solvents</li>
-          <li>Biodegradable formulas, safe for driveways and rivers alike</li>
-          <li>Small batches, hand-bottled and numbered</li>
+          <li>Mixed, bottled and packed by hand, shipped daily</li>
         </ul>
       </div>
     </div>
@@ -547,42 +682,55 @@ footer{
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">The process</span>
-      <h2>From garage to garage.</h2>
+      <h2>From home lab to your garage.</h2>
     </div>
     <div class="process">
       <div class="process-step">
         <div class="step-num">01</div>
         <h3>Mix the formula</h3>
-        <p>Plant based ingredients, no harsh solvents, tested again and again until the smell earned its name.</p>
+        <p>90% water, 10% biodegradable cleaning agents, tested until the smell earns its name.</p>
       </div>
       <div class="process-step">
         <div class="step-num">02</div>
-        <h3>Hand-bottle the batch</h3>
-        <p>Small runs, numbered by hand. Batch 001 was 40 bottles on a kitchen table, made after work.</p>
+        <h3>Bottle and pack by hand</h3>
+        <p>Every order mixed, bottled and packed the same day, right where it's made.</p>
       </div>
       <div class="process-step">
         <div class="step-num">03</div>
-        <h3>Ride it dirty again</h3>
-        <p>Straight to local riders for the real test. A muddy ride and an honest review.</p>
+        <h3>Ship it out daily</h3>
+        <p>Starting with bike shops and bike parks across Austria, then the rest of Europe.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="merch">
+<section class="section section-alt" id="trending">
   <div class="wrap">
-    <div class="merch">
-      <div>
-        <span class="eyebrow" style="color:var(--sky);">Coming soon</span>
-        <h2>SoxyBobby socks are joining the lab.</h2>
-        <p>Our first merch drop. Loud, comfy, and made for riders who want to rep the lab off the bike too.</p>
-        <a href="#signup" class="btn btn-primary">Get notified</a>
-      </div>
-      <div class="sock-row" aria-hidden="true">
-        <div class="sock sock-a">SOXY</div>
-        <div class="sock sock-b">BOBBY</div>
-        <div class="sock sock-c">V.01</div>
-      </div>
+    <div class="section-head">
+      <span class="eyebrow">See what's trending</span>
+      <h2>Where to look next.</h2>
+    </div>
+    <div class="trend-grid">
+      <a class="trend-tile" href="#whats-new">
+        <div class="trend-icon">🧪</div>
+        <h3>New Releases</h3>
+        <p>Latest from the lab</p>
+      </a>
+      <a class="trend-tile" href="#shop">
+        <div class="trend-icon">🔮</div>
+        <h3>Upcoming Products</h3>
+        <p>Coming soon drops</p>
+      </a>
+      <a class="trend-tile" href="#signup">
+        <div class="trend-icon">🏍️</div>
+        <h3>Our Community</h3>
+        <p>Riders using CleanLab</p>
+      </a>
+      <a class="trend-tile" href="https://instagram.com" target="_blank" rel="noopener">
+        <div class="trend-icon">📸</div>
+        <h3>Instagram</h3>
+        <p>@cleanlab, demo link</p>
+      </a>
     </div>
   </div>
 </section>
@@ -600,42 +748,37 @@ footer{
   </div>
 </section>
 
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <img src="assets/CleanLab.svg" alt="CleanLab">
-      <p>Vegan bike and moto care, made in a garage lab. 100% vegan, 0% boring.</p>
+<button class="ai-fab" id="aiFab" aria-label="Open lab assistant" aria-expanded="false" aria-controls="aiPanel">🧪</button>
+<div class="ai-panel" id="aiPanel" role="dialog" aria-label="Lab assistant chat">
+  <div class="ai-panel-header">
+    <div>
+      <h4>Lab Assistant</h4>
+      <span>Scripted demo, not a live AI</span>
     </div>
-    <div class="footer-links">
-      <div class="footer-col">
-        <h4>Shop</h4>
-        <a href="#products">Flower Fart</a>
-        <a href="#products">BubbleGum</a>
-        <a href="#products">CleanDisco</a>
-      </div>
-      <div class="footer-col">
-        <h4>Lab</h4>
-        <a href="#lab">Our process</a>
-        <a href="#merch">SoxyBobby</a>
-        <a href="#signup">Join the lab</a>
-      </div>
-      <div class="footer-col">
-        <h4>Follow</h4>
-        <a href="#">Instagram</a>
-        <a href="#">TikTok</a>
-      </div>
-    </div>
+    <button class="ai-close" id="aiClose" aria-label="Close chat">✕</button>
   </div>
-  <div class="footer-bottom wrap">© 2026 CleanLab. Made in a garage, not a factory.</div>
-</footer>
+  <div class="ai-messages" id="aiMessages">
+    <div class="ai-msg bot">Hey, I'm the Lab Assistant. Ask me about scents, shipping, ingredients or anything else about CleanLab. Heads up, I'm a scripted demo for now, not a real AI yet.</div>
+  </div>
+  <div class="ai-suggestions" id="aiSuggestions">
+    <button type="button" class="ai-suggestion" data-q="What scents do you have?">Scents?</button>
+    <button type="button" class="ai-suggestion" data-q="Is it vegan?">Vegan?</button>
+    <button type="button" class="ai-suggestion" data-q="Do you ship to Europe?">Shipping?</button>
+    <button type="button" class="ai-suggestion" data-q="Will it scratch my paint?">Scratch safe?</button>
+  </div>
+  <form class="ai-input-row" id="aiForm">
+    <input type="text" id="aiInput" placeholder="Ask something..." aria-label="Type your question" autocomplete="off">
+    <button type="submit">Send</button>
+  </form>
+</div>
 
 <div class="modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalProductName" hidden>
   <div class="modal">
     <div class="modal-header">
-      <div class="modal-swatch" id="modalSwatch"><div class="bottle" style="width:40px;height:70px;background:rgba(255,255,255,0.55);border:3px solid var(--ink);border-radius:8px 8px 12px 12px;"></div></div>
+      <div class="modal-swatch" id="modalSwatch"></div>
       <div class="modal-title">
         <h2 id="modalProductName">Product name</h2>
-        <span class="price" id="modalPrice">€0.00</span>
+        <span class="price" id="modalPrice">&euro;0.00</span>
       </div>
       <button class="modal-close" id="modalClose" aria-label="Close product details">✕</button>
     </div>
@@ -644,146 +787,379 @@ footer{
   </div>
 </div>
 
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="assets/CleanLab-negative.svg" alt="CleanLab">
+      <p>Vegan bike and moto care, made in a home lab in Austria. 100% vegan, 0% boring.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="TikTok">TT</a>
+        <a href="#" aria-label="Facebook">FB</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="#shop">Cleaners</a>
+        <a href="#shop">Lube</a>
+        <a href="#shop">Protection</a>
+        <a href="#shop">Apparel</a>
+        <a href="#shop">Care kits</a>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <a href="#">Contact us</a>
+        <a href="#">Delivery info</a>
+        <a href="#">Returns</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Lab</h4>
+        <a href="#lab">Our process</a>
+        <a href="#trending">Community</a>
+        <a href="#signup">Join the lab</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Imprint</a>
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms &amp; conditions</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom wrap">
+    <span>&copy; 2026 CleanLab. Made in a garage, not a factory.</span>
+    <span>Demo site, prices and stock are placeholders.</span>
+  </div>
+</footer>
+
 <script>
-var PRODUCTS = {
-  "flower-fart": {
-    name: "Flower Fart",
-    price: "€14.90",
-    swatchClass: "sw-flower",
-    description: "Don't let the name scare you off. Flower Fart is a light, floral wash built to lift dirt and road grime without stripping wax or fading paint. It foams up fast, smells like a garden after rain, and rinses off clean without leaving streaks. Made for riders who want a proper clean without a chemical smell taking over the garage.",
-    info: [
-      ["Volume", "500ml"],
-      ["Format", "Spray bottle"],
-      ["pH", "Neutral, around 7"],
-      ["Scent strength", "Medium"],
-      ["Vegan", "Yes"],
-      ["Cruelty free", "Yes"],
-      ["Shelf life", "24 months unopened"]
-    ],
+/* ================= PRODUCT CATALOG ================= */
+var BASE_PRODUCTS = {
+  "ready-cleaner": {
+    name: "Ready Cleaner",
+    type: "Cleaner",
+    icon: "bottle",
+    description: "Our everyday ready to use wash. Spray it on, let it foam, rinse it off. The {variant} version cuts road grime and dust without touching paint, chrome or plastic, and it won't scratch clear coat or trim.",
+    info: [["Volume","500ml"],["Format","Ready to use spray"],["pH","Neutral"],["Vegan","Yes"],["Scratch safe","Yes, no abrasives"],["Shelf life","24 months"]],
     features: [
-      "Plant based cleaning agents, no harsh solvents",
-      "Safe on paint, chrome, plastic and rubber",
-      "High foam formula lifts dirt before you even wipe",
-      "Light floral scent that fades, doesn't linger for days",
-      "Breaks down naturally within about 28 days"
+      "No abrasive particles, safe on paint, chrome, plastic and rubber",
+      "High foam formula lifts dirt fast",
+      "Works with EU tap water, no limescale residue after rinsing",
+      "90% water based, 10% biodegradable cleaning agents",
+      "{variant} scent, fades fast, doesn't linger"
     ],
-    howTo: [
-      "Shake well before use.",
-      "Spray generously over a cool, dry surface, avoid direct sun.",
-      "Let it sit for 30 to 60 seconds.",
-      "Wipe or rinse off with water, no scrubbing needed.",
-      "Dry with a microfiber cloth for a streak free finish."
-    ],
-    environment: [
-      "Formula breaks down naturally, safe for driveways, drains and rivers",
-      "Bottle made from recycled plastic",
-      "Never tested on animals, fully vegan formula start to finish",
-      "Concentrated formula means less plastic shipped per wash"
-    ],
+    howTo: ["Shake well before use.","Spray over a cool, dry surface.","Wait 30 to 60 seconds.","Rinse or wipe off, no scrubbing."],
+    environment: ["Biodegradable formula, safe for drains and rivers","Recycled plastic bottle","Vegan, never tested on animals"],
     faq: [
-      ["Does it really smell like flowers?", "Yes, a soft floral scent, nothing too sweet or heavy."],
-      ["Can I use it on a car too?", "Yes, it works fine on cars, motorbikes and bicycles alike."],
-      ["Is it safe on matte finishes?", "Yes, the pH neutral formula is safe on matte paint and vinyl wraps."],
-      ["How long does one bottle last?", "About 15 to 20 washes on an average size motorbike."]
+      ["Will it scratch my paint?","No, there are no abrasives in the formula and it's pH neutral."],
+      ["Does it leave limescale marks?","No, it's built to work cleanly with EU tap water, hard or soft."],
+      ["Can I use it on carbon frames?","Yes, it's safe on carbon, paint, plastic and chrome."]
     ],
-    reviews: [
-      ["Mira", 5, "Smells way better than the name suggests. My bike has never been this clean."],
-      ["Jonas", 4, "Great foam, cuts through mud fast. Wish the bottle was a bit bigger."],
-      ["Ana", 5, "Finally a cleaner that doesn't smell like a chemical plant."]
-    ]
+    reviews: [["Mira",5,"Smells way better than I expected. My bike has never been this clean."],["Jonas",4,"Great foam, cuts through mud fast. Wish the bottle was a bit bigger."],["Ana",5,"Finally a cleaner that doesn't smell like a chemical plant."]]
   },
-  "bubblegum": {
-    name: "BubbleGum",
-    price: "€14.90",
-    swatchClass: "sw-bubble",
-    description: "Childhood nostalgia in a spray bottle. BubbleGum brings a sweet, high foam wash that cuts through grease and grime while your bike ends up smelling like the best summer of your life. Built for the dirtiest jobs, gentle enough for daily use.",
-    info: [
-      ["Volume", "500ml"],
-      ["Format", "Spray bottle"],
-      ["pH", "Neutral, around 6.8"],
-      ["Scent strength", "Strong"],
-      ["Vegan", "Yes"],
-      ["Cruelty free", "Yes"],
-      ["Shelf life", "24 months unopened"]
-    ],
+  "ready-cleaner-refill": {
+    name: "Ready Cleaner + Concentrate Refill",
+    type: "Cleaner",
+    icon: "bottle",
+    description: "Same {variant} ready cleaner, plus a concentrate refill pouch so you're not buying a new bottle every time. Mix the refill with water at home and top up your spray bottle for months.",
+    info: [["Includes","1x 500ml ready bottle + 1x concentrate refill"],["Refill yield","About 3 extra bottle refills"],["Vegan","Yes"],["Scratch safe","Yes"]],
     features: [
-      "Extra high foam, great for degreasing chains and wheels",
-      "Sweet, long lasting bubblegum scent",
-      "Safe on all finishes, including matte and satin",
-      "Works in cold water too, no need to heat anything up",
-      "Concentrated, a little goes a long way"
+      "Cuts plastic waste, refill instead of rebuy",
+      "Same scratch safe, pH neutral formula as the ready bottle",
+      "Concentrate goes further, better cost per wash",
+      "{variant} scent in both bottle and refill"
     ],
-    howTo: [
-      "Shake well before use.",
-      "Spray on the dirtiest parts first, chain, wheels, exhaust.",
-      "Wait 1 to 2 minutes for the foam to break down grease.",
-      "Rinse thoroughly with water.",
-      "Wipe dry to avoid water spots."
-    ],
-    environment: [
-      "Biodegradable surfactants, no phosphates",
-      "Recyclable bottle and cap",
-      "100% vegan, never tested on animals",
-      "Made in small batches to avoid overproduction waste"
-    ],
+    howTo: ["Use the ready bottle as normal until empty.","Mix the concentrate refill with water, following the label ratio.","Refill your spray bottle and keep going."],
+    environment: ["One refill pouch replaces multiple plastic bottles","Concentrate means less water shipped, smaller footprint","Vegan, biodegradable formula"],
     faq: [
-      ["Is the smell too strong?", "It's on the stronger side. If you prefer something lighter, try Flower Fart."],
-      ["Can I use it on my chain?", "Yes, it's safe on chains, just re-lube after cleaning."],
-      ["Does it stain plastic parts?", "No, the formula is dye free and won't stain."]
+      ["How many washes does the refill add?","About 3 extra bottle refills per pouch, depending on dilution."],
+      ["Can I mix scents?","The refill is scent matched to the bottle, but nothing bad happens if you experiment."]
     ],
-    reviews: [
-      ["Leo", 5, "My garage smells like a candy store now, in the best way."],
-      ["Sara", 5, "Cuts through mud like nothing else I've tried."],
-      ["Deniz", 4, "Love the smell, foam could last a bit longer in hot weather."]
-    ]
+    reviews: [["Felix",5,"Cheaper per wash and way less plastic. Should've done this from the start."],["Nora",4,"Refill ratio could be printed a bit bigger on the pouch, otherwise great."]]
   },
-  "cleandisco": {
-    name: "CleanDisco",
-    price: "€14.90",
-    swatchClass: "sw-disco",
-    description: "Fresh, energetic and built for after dark rides. CleanDisco is a fast acting wash with a crisp, citrus forward scent that leaves your ride looking, and smelling, ready for the night.",
-    info: [
-      ["Volume", "500ml"],
-      ["Format", "Spray bottle"],
-      ["pH", "Neutral, around 7.2"],
-      ["Scent strength", "Medium"],
-      ["Vegan", "Yes"],
-      ["Cruelty free", "Yes"],
-      ["Shelf life", "24 months unopened"]
-    ],
+  "drivetrain-refill": {
+    name: "Refill Drivetrain Cleaner",
+    type: "Refill",
+    icon: "bottle",
+    description: "A concentrated degreaser for chains, cassettes and derailleurs. The {variant} refill cuts through grease and chain grime fast, without harsh solvents that dry out seals.",
+    info: [["Format","Concentrate refill pouch"],["Use","Ready to use undiluted on heavy grime"],["Vegan","Yes"],["Scratch safe","Yes, safe on chrome and paint"]],
     features: [
-      "Fast acting formula, ready to rinse in under a minute",
-      "Crisp citrus scent with a hint of mint",
-      "Streak free finish on glass, mirrors and visors",
-      "Anti static formula, less dust sticks after cleaning",
-      "Easy to see foam coverage, even in low light"
+      "Strong enough for chain grease, gentle on seals and rubber",
+      "Refill pouch, no extra plastic bottle",
+      "Works with EU tap water rinse, no residue",
+      "{variant} scent cuts through the usual grease smell"
     ],
-    howTo: [
-      "Shake well before use.",
-      "Spray evenly across the surface.",
-      "Wait about 45 seconds.",
-      "Rinse or wipe with a damp cloth.",
-      "Buff dry for extra shine."
-    ],
-    environment: [
-      "Readily biodegradable formula",
-      "No microplastics, no harsh preservatives",
-      "Vegan and cruelty free from mix to bottle",
-      "Bottle designed for refill, a refill program is in the works"
-    ],
+    howTo: ["Apply directly to a dirty chain or cassette.","Work it in with a chain cleaning tool or old toothbrush.","Wait a minute, then rinse thoroughly."],
+    environment: ["Refill format cuts down on plastic bottles","Biodegradable degreasing agents","Vegan, cruelty free"],
     faq: [
-      ["Does it work on helmets and visors?", "Yes, it's safe on most visors, always spot test coated lenses first."],
-      ["Is it good for night rides specifically?", "The anti static finish means less dust sticks after dark, that's where the name comes from."],
-      ["Any alcohol in the formula?", "No, it's alcohol free so it won't dry out rubber seals."]
+      ["Is it safe on e-bike drivetrains?","Yes, just avoid spraying directly into electrical connectors."],
+      ["Do I need to relube after?","Yes, always relube the chain after degreasing."]
     ],
-    reviews: [
-      ["Petra", 5, "Visor came out crystal clear, no streaks at all."],
-      ["Tom", 4, "Smells fresh, not overpowering. Works fast."],
-      ["Ivo", 5, "My go to before every night ride now."]
-    ]
+    reviews: [["Timo",5,"Chain looks brand new after one use. Strong stuff."],["Bea",4,"Works great, just wear gloves, it's a proper degreaser."]]
+  },
+  "lube": {
+    name: "Lube",
+    type: "Lube",
+    icon: "bottle",
+    description: "A plant based chain lube that keeps things running quiet and smooth. The {variant} version goes on clean, doesn't attract extra dust, and holds up through a proper ride.",
+    info: [["Volume","100ml"],["Format","Drip bottle"],["Vegan","Yes"],["Base","Plant based, low residue"]],
+    features: [
+      "Low residue formula, less dust and grime buildup",
+      "Works in wet and dry conditions",
+      "{variant} scent, fades once it settles into the chain",
+      "Safe on paint and plastic if it drips"
+    ],
+    howTo: ["Wipe the chain clean and dry first.","Apply a drop to each link while turning the pedals.","Wait a few minutes, then wipe off the excess."],
+    environment: ["Plant based base oil","Vegan formula, no animal derived additives","Recyclable bottle"],
+    faq: [
+      ["Wet or dry conditions?","It handles both, though a dedicated wet weather formula is in testing."],
+      ["How often should I re-apply?","Every 150 to 250km, or sooner after a wet ride."]
+    ],
+    reviews: [["Katja",5,"Quiet chain, no more squeaking after two days of rain."],["Milo",4,"Good stuff, lasts a decent while between rides."]]
+  },
+  "shine": {
+    name: "Shine Protection",
+    type: "Protection",
+    icon: "bottle",
+    description: "A protective finish that goes on after cleaning to keep dirt and corrosion from building back up. The {variant} version adds a light shine and makes your next wash faster.",
+    info: [["Volume","250ml"],["Format","Spray, wipe off"],["Vegan","Yes"],["Scratch safe","Yes"]],
+    features: [
+      "Slows down corrosion on metal parts",
+      "Makes dirt and dust easier to wipe off next time",
+      "Light shine finish, not greasy",
+      "{variant} scent"
+    ],
+    howTo: ["Apply to a clean, dry surface.","Buff in with a microfiber cloth.","Let it cure a few minutes before riding."],
+    environment: ["Biodegradable protective formula","Vegan, cruelty free","Reduces how often you need a full wash"],
+    faq: [
+      ["Does it work on matte finishes?","Yes, it's safe on matte, satin and gloss paint."],
+      ["How long does the protection last?","Usually 2 to 3 weeks of regular riding."]
+    ],
+    reviews: [["Petra",5,"Bike stays cleaner for way longer now."],["Sam",4,"Nice light shine, not greasy at all."]]
+  },
+  "socks": {
+    name: "SoxyBobby",
+    type: "Apparel",
+    icon: "sock",
+    description: "Loud, comfortable socks for riders who want to represent the lab off the bike too. The {variant} brings that scent line's colours and personality onto your feet, no actual smell included.",
+    info: [["Material","Cotton blend"],["Sizes","One size fits most"],["Fit","Crew length"],["Care","Machine washable"]],
+    features: ["Cushioned sole for long days in the saddle","Breathable cotton blend","Matches the {variant} colour palette","Reinforced heel and toe"],
+    howTo: ["Put them on.","Ride.","Wash on a normal cycle, no fabric softener needed."],
+    environment: ["Cotton blend with a lower water footprint than pure cotton","Packaged without extra plastic"],
+    faq: [
+      ["What sizes are available?","One size, fits most adult shoe sizes 38 to 45."],
+      ["Will more editions be coming?","Yes, a CleanDisco edition is planned for a later drop."]
+    ],
+    reviews: [["Vik",5,"Comfiest riding socks I own, and they look great."],["Ella",5,"Bought two pairs, wish there were more colours already."]]
+  },
+  "cap": {
+    name: "Cap",
+    type: "Apparel",
+    icon: "cap",
+    description: "A simple snapback cap with the CleanLab mark on the front. The {variant} colourway keeps things low key, for days when you want the brand without the whole lab coat.",
+    info: [["Fit","Adjustable snapback"],["Material","Cotton twill"],["Sizes","One size fits most"]],
+    features: ["Structured 6 panel fit","Embroidered logo, holds up longer than a print","Adjustable strap for most head sizes"],
+    howTo: ["Adjust the strap to fit.","Wear it."],
+    environment: ["Cotton twill, no synthetic lining","Minimal packaging, shipped without a box"],
+    faq: [
+      ["Is it one size?","Yes, adjustable snapback fits most adults."],
+      ["Any other colours planned?","Yes, a couple more colourways are being tested for a future drop."]
+    ],
+    reviews: [["Robin",5,"Solid quality, fits great, logo looks sharp."],["Dani",4,"Good cap, would like a darker brim option."]]
+  },
+  "care-kit": {
+    name: "Care Kit",
+    type: "Kit",
+    icon: "kit",
+    description: "Everything you need in one box: the Ready Cleaner, the Lube and Shine Protection, all in the {variant} scent line. The easiest way to try the full lab lineup at once.",
+    info: [["Includes","1x Ready Cleaner 500ml, 1x Lube 100ml, 1x Shine Protection 250ml"],["Vegan","Yes"],["Scent line","{variant}"],["Savings","About 15% versus buying separately"]],
+    features: ["Full clean, lube and protect routine in one box","All three items matched to the same scent line","Better value than buying each item alone","Makes a solid gift for a rider friend"],
+    howTo: ["Clean with the Ready Cleaner.","Lube the chain once dry.","Finish with a layer of Shine Protection."],
+    environment: ["One shipment instead of three separate orders, less packaging overall","Every item inside is vegan and biodegradable"],
+    faq: [
+      ["Can I mix scents in a kit?","Not yet, kits currently ship as a single matched scent line."],
+      ["Is this good for a first time buyer?","Yes, it's the easiest way to try everything at once."]
+    ],
+    reviews: [["Owen",5,"Great starter box, everything smells and works the same, easy to love."],["Iris",5,"Bought this as a gift, my friend won't stop talking about the smell."]]
   }
 };
 
+var VARIANTS = [
+  {id:"ready-cleaner-flower-fart", base:"ready-cleaner", variant:"Flower Fart", colour:"Flower Fart", swatch:"sw-flower", price:14.90, availability:"in-stock", badge:"Bestseller", isNew:false},
+  {id:"ready-cleaner-bubblegum", base:"ready-cleaner", variant:"BubbleGum", colour:"BubbleGum", swatch:"sw-bubble", price:14.90, availability:"in-stock", badge:null, isNew:false},
+  {id:"ready-cleaner-cleandisco", base:"ready-cleaner", variant:"CleanDisco", colour:"CleanDisco", swatch:"sw-disco", price:14.90, availability:"in-stock", badge:null, isNew:false},
+
+  {id:"refill-combo-flower-fart", base:"ready-cleaner-refill", variant:"Flower Fart", colour:"Flower Fart", swatch:"sw-flower", price:21.90, availability:"in-stock", badge:null, isNew:false},
+  {id:"refill-combo-bubblegum", base:"ready-cleaner-refill", variant:"BubbleGum", colour:"BubbleGum", swatch:"sw-bubble", price:21.90, availability:"in-stock", badge:null, isNew:false},
+  {id:"refill-combo-cleandisco", base:"ready-cleaner-refill", variant:"CleanDisco", colour:"CleanDisco", swatch:"sw-disco", price:21.90, availability:"coming-soon", badge:"New", isNew:true},
+
+  {id:"drivetrain-flower-fart", base:"drivetrain-refill", variant:"Flower Fart", colour:"Flower Fart", swatch:"sw-flower", price:17.90, availability:"in-stock", badge:null, isNew:false},
+  {id:"drivetrain-bubblegum", base:"drivetrain-refill", variant:"BubbleGum", colour:"BubbleGum", swatch:"sw-bubble", price:17.90, availability:"in-stock", badge:null, isNew:false},
+  {id:"drivetrain-cleandisco", base:"drivetrain-refill", variant:"CleanDisco", colour:"CleanDisco", swatch:"sw-disco", price:17.90, availability:"in-stock", badge:null, isNew:false},
+
+  {id:"lube-flower-fart", base:"lube", variant:"Flower Fart", colour:"Flower Fart", swatch:"sw-flower", price:12.90, availability:"in-stock", badge:null, isNew:false},
+  {id:"lube-bubblegum", base:"lube", variant:"BubbleGum", colour:"BubbleGum", swatch:"sw-bubble", price:12.90, availability:"in-stock", badge:null, isNew:false},
+  {id:"lube-cleandisco", base:"lube", variant:"CleanDisco", colour:"CleanDisco", swatch:"sw-disco", price:12.90, availability:"in-stock", badge:"New", isNew:true},
+
+  {id:"shine-flower-fart", base:"shine", variant:"Flower Fart", colour:"Flower Fart", swatch:"sw-flower", price:16.90, availability:"in-stock", badge:null, isNew:false},
+  {id:"shine-bubblegum", base:"shine", variant:"BubbleGum", colour:"BubbleGum", swatch:"sw-bubble", price:16.90, availability:"coming-soon", badge:"Coming soon", isNew:false},
+  {id:"shine-cleandisco", base:"shine", variant:"CleanDisco", colour:"CleanDisco", swatch:"sw-disco", price:16.90, availability:"in-stock", badge:null, isNew:false},
+
+  {id:"socks-flower-fart", base:"socks", variant:"Flower Fart Edition", colour:"Flower Fart", swatch:"sw-flower", price:9.90, availability:"in-stock", badge:"New", isNew:true},
+  {id:"socks-bubblegum", base:"socks", variant:"BubbleGum Edition", colour:"BubbleGum", swatch:"sw-bubble", price:9.90, availability:"in-stock", badge:"New", isNew:true},
+
+  {id:"cap-black", base:"cap", variant:"Lab Black", colour:"Lab Black", swatch:"sw-black", price:19.90, availability:"in-stock", badge:null, isNew:false},
+  {id:"cap-sky", base:"cap", variant:"Lab Sky", colour:"Lab Sky", swatch:"sw-deepsky", price:19.90, availability:"coming-soon", badge:"Coming soon", isNew:false},
+
+  {id:"kit-flower-fart", base:"care-kit", variant:"Flower Fart", colour:"Flower Fart", swatch:"sw-flower", price:39.90, availability:"in-stock", badge:"Bestseller", isNew:false},
+  {id:"kit-bubblegum", base:"care-kit", variant:"BubbleGum", colour:"BubbleGum", swatch:"sw-bubble", price:39.90, availability:"in-stock", badge:null, isNew:false},
+  {id:"kit-cleandisco", base:"care-kit", variant:"CleanDisco", colour:"CleanDisco", swatch:"sw-disco", price:39.90, availability:"coming-soon", badge:"Coming soon", isNew:false}
+];
+
+function fillTemplate(str, variantLabel){
+  if (typeof str !== "string") return str;
+  return str.split("{variant}").join(variantLabel);
+}
+
+function getFullProduct(variant){
+  var base = BASE_PRODUCTS[variant.base];
+  return {
+    name: base.name + " — " + variant.variant,
+    type: base.type,
+    icon: base.icon,
+    swatch: variant.swatch,
+    price: "\u20ac" + variant.price.toFixed(2),
+    availability: variant.availability,
+    badge: variant.badge,
+    description: fillTemplate(base.description, variant.variant),
+    info: base.info.map(function(row){ return [row[0], fillTemplate(row[1], variant.variant)]; }),
+    features: base.features.map(function(f){ return fillTemplate(f, variant.variant); }),
+    howTo: base.howTo,
+    environment: base.environment,
+    faq: base.faq,
+    reviews: base.reviews
+  };
+}
+
+function priceBucket(price){
+  if (price < 15) return "under15";
+  if (price <= 25) return "15to25";
+  return "over25";
+}
+
+function swatchIconHTML(icon){
+  return "<div class=\"icon-" + icon + "\"></div>";
+}
+
+/* ================= RENDER: WHAT'S NEW ================= */
+function renderWhatsNew(){
+  var track = document.getElementById("whatsNewTrack");
+  var newest = VARIANTS.filter(function(v){ return v.isNew; });
+  if (newest.length === 0){
+    track.innerHTML = "<p style=\"font-size:14px;color:#777;\">Nothing brand new this week, check back soon.</p>";
+    return;
+  }
+  track.innerHTML = newest.map(function(v){
+    var base = BASE_PRODUCTS[v.base];
+    return "<div class=\"whats-new-card\" data-variant=\"" + v.id + "\" role=\"button\" tabindex=\"0\">" +
+      "<div class=\"swatch " + v.swatch + "\">" + swatchIconHTML(base.icon) + "</div>" +
+      "<h4>" + base.name + "</h4>" +
+      "<span class=\"price\">\u20ac" + v.price.toFixed(2) + "</span>" +
+      "</div>";
+  }).join("");
+  track.querySelectorAll(".whats-new-card").forEach(function(card){
+    card.addEventListener("click", function(){ openProduct(card.dataset.variant); });
+    card.addEventListener("keydown", function(e){
+      if (e.key === "Enter" || e.key === " "){ e.preventDefault(); openProduct(card.dataset.variant); }
+    });
+  });
+}
+
+/* ================= RENDER: PRODUCT GRID ================= */
+function getActiveFilters(){
+  var filters = { availability: [], type: [], price: [], colour: [] };
+  document.querySelectorAll('#filtersSidebar input[type=checkbox]:checked').forEach(function(input){
+    filters[input.dataset.facet].push(input.value);
+  });
+  return filters;
+}
+
+function variantMatches(v, filters){
+  if (filters.availability.length && filters.availability.indexOf(v.availability) === -1) return false;
+  if (filters.type.length && filters.type.indexOf(BASE_PRODUCTS[v.base].type) === -1) return false;
+  if (filters.price.length && filters.price.indexOf(priceBucket(v.price)) === -1) return false;
+  if (filters.colour.length && filters.colour.indexOf(v.colour) === -1) return false;
+  return true;
+}
+
+function sortVariants(list, sortValue){
+  var sorted = list.slice();
+  if (sortValue === "price-asc") sorted.sort(function(a,b){ return a.price - b.price; });
+  else if (sortValue === "price-desc") sorted.sort(function(a,b){ return b.price - a.price; });
+  else if (sortValue === "az") sorted.sort(function(a,b){ return BASE_PRODUCTS[a.base].name.localeCompare(BASE_PRODUCTS[b.base].name); });
+  else if (sortValue === "za") sorted.sort(function(a,b){ return BASE_PRODUCTS[b.base].name.localeCompare(BASE_PRODUCTS[a.base].name); });
+  else if (sortValue === "newest") sorted.sort(function(a,b){ return (b.isNew?1:0) - (a.isNew?1:0); });
+  return sorted;
+}
+
+function renderGrid(){
+  var filters = getActiveFilters();
+  var sortValue = document.getElementById("sortSelect").value;
+  var visible = sortVariants(VARIANTS.filter(function(v){ return variantMatches(v, filters); }), sortValue);
+  var grid = document.getElementById("productGrid");
+  document.getElementById("resultCount").textContent = visible.length + (visible.length === 1 ? " product" : " products");
+
+  if (visible.length === 0){
+    grid.innerHTML = "<div class=\"empty-state\">No products match those filters. Try clearing a few.</div>";
+    return;
+  }
+
+  grid.innerHTML = visible.map(function(v){
+    var base = BASE_PRODUCTS[v.base];
+    var badgeHTML = "";
+    if (v.badge){
+      var badgeClass = v.badge === "Coming soon" ? "badge-coming" : (v.badge === "Bestseller" ? "badge-best" : "");
+      badgeHTML = "<span class=\"tile-badge " + badgeClass + "\">" + v.badge + "</span>";
+    }
+    return "<div class=\"product-tile\" data-variant=\"" + v.id + "\" role=\"button\" tabindex=\"0\">" +
+      badgeHTML +
+      "<div class=\"swatch " + v.swatch + "\">" + swatchIconHTML(base.icon) + "</div>" +
+      "<span class=\"tile-type\">" + base.type + "</span>" +
+      "<h3>" + base.name + "</h3>" +
+      "<div class=\"tag-row\"><span class=\"tag\">" + v.variant + "</span></div>" +
+      "<div class=\"price-row\"><span class=\"price\">\u20ac" + v.price.toFixed(2) + "</span></div>" +
+      "</div>";
+  }).join("");
+
+  grid.querySelectorAll(".product-tile").forEach(function(tile){
+    tile.addEventListener("click", function(){ openProduct(tile.dataset.variant); });
+    tile.addEventListener("keydown", function(e){
+      if (e.key === "Enter" || e.key === " "){ e.preventDefault(); openProduct(tile.dataset.variant); }
+    });
+  });
+}
+
+document.querySelectorAll('#filtersSidebar input[type=checkbox]').forEach(function(input){
+  input.addEventListener("change", renderGrid);
+});
+document.getElementById("sortSelect").addEventListener("change", renderGrid);
+document.getElementById("clearFilters").addEventListener("click", function(){
+  document.querySelectorAll('#filtersSidebar input[type=checkbox]').forEach(function(i){ i.checked = false; });
+  renderGrid();
+});
+var filterToggle = document.getElementById("filterToggle");
+var filtersSidebar = document.getElementById("filtersSidebar");
+filterToggle.addEventListener("click", function(){
+  var open = filtersSidebar.classList.toggle("open");
+  filterToggle.setAttribute("aria-expanded", String(open));
+});
+
+renderWhatsNew();
+renderGrid();
+
+/* ================= PRODUCT MODAL ================= */
 var TABS = ["Description", "Product info", "Features", "How to", "Protect the world", "FAQ", "Reviews"];
 
 function starString(n){
@@ -794,12 +1170,10 @@ function starString(n){
 
 function buildPanel(tabIndex, p){
   if (tabIndex === 0){
-    return "<div class=\"modal-panel" + (tabIndex===0?" active":"") + "\" data-panel=\"0\"><p>" + p.description + "</p></div>";
+    return "<div class=\"modal-panel active\" data-panel=\"0\"><p>" + p.description + "</p></div>";
   }
   if (tabIndex === 1){
-    var rows = p.info.map(function(row){
-      return "<tr><td>" + row[0] + "</td><td>" + row[1] + "</td></tr>";
-    }).join("");
+    var rows = p.info.map(function(row){ return "<tr><td>" + row[0] + "</td><td>" + row[1] + "</td></tr>"; }).join("");
     return "<div class=\"modal-panel\" data-panel=\"1\"><table class=\"spec-table\">" + rows + "</table></div>";
   }
   if (tabIndex === 2){
@@ -815,9 +1189,7 @@ function buildPanel(tabIndex, p){
     return "<div class=\"modal-panel\" data-panel=\"4\"><ul class=\"env-list\">" + envItems + "</ul></div>";
   }
   if (tabIndex === 5){
-    var faqs = p.faq.map(function(qa){
-      return "<details class=\"faq-item\"><summary>" + qa[0] + "</summary><p>" + qa[1] + "</p></details>";
-    }).join("");
+    var faqs = p.faq.map(function(qa){ return "<details class=\"faq-item\"><summary>" + qa[0] + "</summary><p>" + qa[1] + "</p></details>"; }).join("");
     return "<div class=\"modal-panel\" data-panel=\"5\">" + faqs + "</div>";
   }
   if (tabIndex === 6){
@@ -834,14 +1206,17 @@ var modalBody = document.getElementById("modalBody");
 var modalTabs = document.getElementById("modalTabs");
 var lastFocused = null;
 
-function openProduct(key){
-  var p = PRODUCTS[key];
-  if (!p) return;
+function openProduct(variantId){
+  var variant = VARIANTS.filter(function(v){ return v.id === variantId; })[0];
+  if (!variant) return;
+  var p = getFullProduct(variant);
   lastFocused = document.activeElement;
 
   document.getElementById("modalProductName").textContent = p.name;
-  document.getElementById("modalPrice").textContent = p.price;
-  document.getElementById("modalSwatch").className = "modal-swatch swatch " + p.swatchClass;
+  document.getElementById("modalPrice").textContent = p.price + (p.availability === "coming-soon" ? "  ·  Coming soon" : "");
+  var swatchEl = document.getElementById("modalSwatch");
+  swatchEl.className = "modal-swatch swatch " + p.swatch;
+  swatchEl.innerHTML = swatchIconHTML(p.icon);
 
   modalTabs.innerHTML = TABS.map(function(label, i){
     return "<button class=\"modal-tab" + (i===0?" active":"") + "\" role=\"tab\" data-tab=\"" + i + "\">" + label + "</button>";
@@ -872,25 +1247,83 @@ function closeProduct(){
   if (lastFocused) lastFocused.focus();
 }
 
-document.querySelectorAll(".product-card").forEach(function(card){
-  card.addEventListener("click", function(){
-    openProduct(card.dataset.product);
+document.getElementById("modalClose").addEventListener("click", closeProduct);
+modal.addEventListener("click", function(e){ if (e.target === modal) closeProduct(); });
+document.addEventListener("keydown", function(e){ if (e.key === "Escape" && !modal.hidden) closeProduct(); });
+
+/* ================= AI ASSISTANT (scripted demo) ================= */
+(function(){
+  var fab = document.getElementById("aiFab");
+  var panel = document.getElementById("aiPanel");
+  var closeBtn = document.getElementById("aiClose");
+  var messages = document.getElementById("aiMessages");
+  var form = document.getElementById("aiForm");
+  var input = document.getElementById("aiInput");
+  var suggestions = document.getElementById("aiSuggestions");
+
+  var RULES = [
+    { keys: ["scent","smell","flavor","flavour"], answer: "We've got three scent lines: Flower Fart (soft floral), BubbleGum (sweet and strong) and CleanDisco (fresh citrus). Most products come in all three." },
+    { keys: ["vegan","cruelty"], answer: "Yes, every CleanLab product is 100% vegan and never tested on animals." },
+    { keys: ["ship","deliver","delivery","austria","europe"], answer: "We're starting with bike shops and bike parks around Austria, then expanding across Europe. This site is a demo, so shipping isn't live yet." },
+    { keys: ["scratch","paint","damage"], answer: "No abrasives, pH neutral formulas. They're built to be safe on paint, chrome, plastic and rubber trim." },
+    { keys: ["water","limescale","hard water","calc"], answer: "Our formulas are built to work cleanly with EU tap water, so you shouldn't see limescale marks after rinsing, even in hard water areas." },
+    { keys: ["price","cost","how much"], answer: "Most single products sit between \u20ac9.90 and \u20ac21.90, and the Care Kit is \u20ac39.90. Use the price filter in the shop to browse by budget." },
+    { keys: ["kit","bundle","set"], answer: "The Care Kit bundles the Ready Cleaner, Lube and Shine Protection in one matched scent line, it's the easiest way to try everything at once." },
+    { keys: ["return","refund","cancel"], answer: "This is a demo site, so there's no real order or return system yet. On launch we'll add a proper returns policy here." },
+    { keys: ["ingredient","chemical","formula"], answer: "Every formula is about 90% water and 10% biodegradable cleaning agents, no harsh solvents." },
+    { keys: ["sock","soxybobby"], answer: "SoxyBobby socks currently come in Flower Fart and BubbleGum editions, a CleanDisco edition is planned." },
+    { keys: ["cap","hat"], answer: "The cap is an adjustable snapback, one size fits most, currently in Lab Black with Lab Sky coming soon." },
+    { keys: ["contact","email","help","human"], answer: "For anything I can't answer, use the Join the lab form below, we'll follow up for real." }
+  ];
+
+  function findAnswer(text){
+    var lower = text.toLowerCase();
+    for (var i = 0; i < RULES.length; i++){
+      for (var j = 0; j < RULES[i].keys.length; j++){
+        if (lower.indexOf(RULES[i].keys[j]) !== -1) return RULES[i].answer;
+      }
+    }
+    return "Good question, that's not in my script yet. Try the FAQ tab on any product, or use the Join the lab form and we'll answer for real.";
+  }
+
+  function addMessage(text, who){
+    var div = document.createElement("div");
+    div.className = "ai-msg " + who;
+    div.textContent = text;
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function ask(text){
+    if (!text.trim()) return;
+    addMessage(text, "user");
+    input.value = "";
+    setTimeout(function(){ addMessage(findAnswer(text), "bot"); }, 350);
+  }
+
+  fab.addEventListener("click", function(){
+    var open = panel.classList.toggle("open");
+    fab.setAttribute("aria-expanded", String(open));
+    if (open) input.focus();
   });
-  card.addEventListener("keydown", function(e){
-    if (e.key === "Enter" || e.key === " "){
-      e.preventDefault();
-      openProduct(card.dataset.product);
+  closeBtn.addEventListener("click", function(){
+    panel.classList.remove("open");
+    fab.setAttribute("aria-expanded", "false");
+  });
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    ask(input.value);
+  });
+  suggestions.querySelectorAll(".ai-suggestion").forEach(function(btn){
+    btn.addEventListener("click", function(){ ask(btn.dataset.q); });
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape" && panel.classList.contains("open")){
+      panel.classList.remove("open");
+      fab.setAttribute("aria-expanded", "false");
     }
   });
-});
-
-document.getElementById("modalClose").addEventListener("click", closeProduct);
-modal.addEventListener("click", function(e){
-  if (e.target === modal) closeProduct();
-});
-document.addEventListener("keydown", function(e){
-  if (e.key === "Escape" && !modal.hidden) closeProduct();
-});
+})();
 </script>
 
 </body>
